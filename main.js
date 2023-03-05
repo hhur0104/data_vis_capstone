@@ -21,8 +21,28 @@ let state = {
 
 Promise.all([
     d3.json("./data/world-110.topo.json"),
-   ]).then(([tjson]) => {
+    d3.csv("./data/targets_mod.csv")
+   ]).then(([tjson, target_mod]) => {
     state.world = tjson;
+    state.target = [
+        // Index 0 
+        target_mod.filter( d=> { 
+            if (d["top10"] == "TRUE") {return d.Country}
+            else return null;
+        }).map( d=> { return d.Country}),
+        //Index 1
+        target_mod.filter( d=> { 
+            if (d["top20"] == "TRUE") {return d.Country}
+            else return null;
+        }).map( d=> { return d.Country}),
+        //Index 2
+        target_mod.filter( d=> { 
+            if (d["Region"] == "AsiaOceania") { console.log("AsiaOceania?",d.Country); return d.Country}
+            else return null;
+        }).map( d=> { return d.Country})
+    ];
+
+    //console.log("state.target: ",state.target)
     init();
    });
 
@@ -52,21 +72,13 @@ function handleResize() {
 }
 
 function changeColor(index) {
-    // europe.svg.selectAll("path.countries")
-    //     .select(function(d) {
-    //          if (d.properties.name == target[index]) {
-    //             box = europe.path.bounds(d)
-    //             return this
-    //          } else {return null}})
-    //     .transition()
-    //     .duration(2500)
-    //     .attr("fill","Red")
+    
     state.index = index
 
     if (index == 2) {
         map.svg.selectAll("path.countries")
             .select(function(d) {
-             if (d.properties.name == "Taiwan") {
+             if (d.properties.name == "Philippines") {
                 state.box = map.path.bounds(d)
                 return this
              } else {return null}})
@@ -74,31 +86,12 @@ function changeColor(index) {
 
     map.animate(state);
     bar.animate(state);
-        
-    // console.log("Box", box)
-    // console.log("x0:", box[0][0], ", x1:",box[1][0])
-    // console.log("y0:", box[0][1], ", y1:",box[1][1])
-    // europe.svg.transition()
-    //     .duration(2500)
-    //     .call(
-    //         europe.zoom.transform,
-    //         d3.zoomIdentity
-    //             .translate(state.width / 2 , state.height / 2 ) // change by index
-    //             .scale(1.5)
-    //             .translate(-(box[0][0] + box[1][0]) / 2, -(box[0][1] + box[1][1]) / 2)
-    //     );
 
 }
 
 // scrollama event handlers
 function handleStepEnter(response) {
-    console.log(response);
-    // response = { element, direction, index }
-
-    // add color to current step only
-    // step.classed("is-active", function (d, i) {
-    //     return i === response.index;
-    // });
+    //console.log(response);
     
     // update graphic based on step
     changeColor(response.index)
@@ -106,20 +99,16 @@ function handleStepEnter(response) {
 }
 
 function handleStepExit(response) {
-    // europe.svg.selectAll("path.countries")
-    //     .transition()
-    //     .attr("fill","LightGray")
+    map.svg.selectAll("path.countries")
+        .transition()
+        .duration(1000) 
+        .attr("fill","LightGray")
+        .attr("stroke", "gray")
 
-    // europe.svg.transition()
-    //     .duration(1500) 
-    //     .call(
-    //         europe.zoom.transform,
-    //         d3.zoomIdentity,
-    //         d3.zoomTransform(europe.svg.node()).invert([state.width /2 , state.height /2])
-    //     );
 }
 
 function init() {
+    
     map = new worldmap(state);
     bar = new stickyBar(state);
 

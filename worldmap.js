@@ -3,17 +3,6 @@ class worldmap {
     constructor(state) {
         console.log(state.width);
         console.log(state.height);
-        
-        //This needs to be more Modular.
-        this.target = [
-            ["United States of America","China","India","United Kingdom",
-            "Russia","France","Germany","Saudi Arabia","Japan","South Korea"],
-            ["United States of America","China","India","United Kingdom",
-            "Russia","France","Germany","Saudi Arabia","Japan","South Korea",
-            "Italy","Australia","Canada","Iran","Israel","Spain","Brazil",
-            "Turkey","Netherlands","Poland"],
-            ["China","India","Japan","South Korea","Australia","Taiwan","Pakistan","Singapore"]
-        ];
 
         this.svg = d3.select("#worldmap")
             .append("svg")
@@ -40,7 +29,7 @@ class worldmap {
             .attr("d", this.path)
             .attr("stroke", "gray")
             .attr("fill", d => {
-                //console.log(d.properties.name, " : ", this.path.bounds(d))
+                //console.log(d.properties.name)
                 return "LightGray"})
             
         g.append("path")
@@ -62,14 +51,16 @@ class worldmap {
     }
 
     animate(state) {
-        const targetList = this.target[state.index]
+        const targetList = state.target[state.index]
+        console.log("targetList: ", targetList)
+
         this.svg.transition()
-        .duration(1500) 
-        .call(
-            this.zoom.transform,
-            d3.zoomIdentity,
-            d3.zoomTransform(this.svg.node()).invert([state.width /2 , state.height /2])
-        );
+            .duration(1500) 
+            .call(
+                this.zoom.transform,
+                d3.zoomIdentity,
+                d3.zoomTransform(this.svg.node()).invert([state.width /2 , state.height /2])
+            );
 
         this.svg.selectAll("path.countries")
             .select(function(d) {

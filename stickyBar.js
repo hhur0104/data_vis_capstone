@@ -2,7 +2,7 @@ class stickyBar {
     
     constructor(state) {
         
-        //This needs to be more Modular.
+        //This needs to be more Modular. // Get this from Regional.
         this.exdata  = [
             [{"src":"total", "val":2077095.3},
             {"src":"top10", "val":1577475.0}], 
@@ -42,7 +42,7 @@ class stickyBar {
             .attr("class", "bar")
             .attr("id", d => d.src)
             .attr("x", xScale(0))
-            .attr("y", state.height * 0.9)
+            .attr("y", state.height * 0.93)
             .attr("height", 30)
             .attr("rx", 15)
         
@@ -58,7 +58,7 @@ class stickyBar {
             .join(
               enter => enter.append('text')
                     .attr("x", d => xScale(d.val))
-                    .attr("y", state.height * 0.9 )
+                    .attr("y", state.height * 0.93 )
                     .attr("text-anchor", "end")
                     .style("font-size", "0.0em")
                     .style('opacity', 0)
@@ -90,12 +90,12 @@ class stickyBar {
         this.bar
             .append('circle')
             .attr("cx", xScale(this.exdata[state.index][1]["val"]) - 15)
-            .attr("cy", state.height * 0.9 + 15)
+            .attr("cy", state.height * 0.93 + 15)
         
         this.bar
             .append('circle')
             .attr("cx", xScale(this.exdata[state.index][0]["val"]) - 15)
-            .attr("cy", state.height * 0.9 + 15)
+            .attr("cy", state.height * 0.93 + 15)
         
         this.bar.selectAll("circle")
             .transition()
