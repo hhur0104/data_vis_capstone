@@ -11,10 +11,10 @@ milex$Country[!milex$Country %in% mapnames$Country]
 
 
 mapnames$Country[mapnames$Country %in% milex$Country]
-m <- merge(milex[,c("Country", "Subcont", "X2021")], mapnames, by="row.names", all.y=TRUE)
+m <- merge(milex[,c("Country", "Subcont", "X2020","X2021")], mapnames, by="row.names", all.y=TRUE)
 colnames(m)
-m <- m[,c("Row.names","Subcont", "X2021")]
-colnames(m) <- c("Country","SubRegion","X2021")
+m <- m[,c("Row.names","Subcont","X2020","X2021")]
+colnames(m) <- c("Country","SubRegion","X2020","X2021")
 m$"Region" <- m$SubRegion
 
 unique(m$Region)
@@ -32,12 +32,23 @@ m$Region <- recode("South Asia"="AsiaOceania",
        "Central Asia"="AsiaOceania",
        m$Region)
 m$X2021[is.na(m$X2021)] <- 0
+m$X2020[is.na(m$X2020)] <- 0
+
+
+# Check if year 2021 was bigger than 2020 expense
+#View(m[m$X2020 != 0 & m$X2021 != 0,])
+#View(m[m$X2020 == 0 | m$X2021 == 0,])
+table(ifelse(m$X2020 != 0 & m$X2021 != 0, ifelse(m$X2021 > m$X2020, "TRUE","FALSE"),"NoData"))
+m$big2021 <- ifelse(m$X2020 != 0 & m$X2021 != 0, ifelse(m$X2021 > m$X2020, "TRUE","FALSE"),"NoData")
+
 m <- m[order(-m$X2021),]
 
+# Rank the countries
 m$top10 <- FALSE
 m$top10[1:10] <- TRUE
 m$top20 <- FALSE
 m$top20[1:20] <- TRUE
+
 write.csv(m, file="targets_mod.csv")
 # milex.l <- milex[,c(64:75)]
 # milex.d <- data.frame(

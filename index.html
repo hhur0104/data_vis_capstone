@@ -4,17 +4,15 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
 	<title>Scrollama: Sticky Overlay Example</title>
 	<meta name="description" content="Scrollama: Sticky Overlay Example" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="../style.css" />
+	<!-- <link rel="stylesheet" href="../style.css" /> -->
 	<style>
 		#scrolly {
-			position: relative;
-			background-color: #f3f3f3;
+			position: absolute;
 			padding: 1rem;
-
 		}
 
 		article {
@@ -22,41 +20,26 @@
 			padding: 0;
 			max-width: 30rem;
 			margin: 0 auto;
+			-webkit-transform: translate3d(0, 0, 1000);
+			transform: translate3d(0, 0, 1000);
+			
 		}
-
-		
-		/* #scrolly {
-			position: relative;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			background-color: #f3f3f3;
-			padding: 1rem;
-		}
-
-		#scrolly>* {
-			-webkit-box-flex: 1;
-			-ms-flex: 1;
-			flex: 1;
-		}
-
-		article {
-			position: relative;
-			padding: 0 1rem;
-			max-width: 20rem;
-		} */
 
 		svg {
-			position: -webkit-sticky;
-			position: sticky;
+			/* position: -webkit-sticky;
+			position: -moz-sticky;
+			position: -o-sticky;
+			position: -ms-sticky; */
+			/* position: absolute; */
+			display: block;
+			position: fixed;
 			left: 0;
 			width: 100%; 
 			margin: 0;
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
-			background-color: #b6b1b1;
-			z-index: 0;
+			background-color: #f3f3f3;
 		}
 
 		figure p {
@@ -76,7 +59,8 @@
 		.step {
 			margin: 0 auto 10rem auto;
 			color: #fff;
-			/* background-color: rgba(0, 0, 0, 0.1); */
+			z-index: 1000;
+			
 		}
 
 		.step:last-child {
@@ -90,6 +74,7 @@
 
 		.step p {
 			text-align: left;
+			position: relative;
 			padding: 1rem;
 			font-size: 1.5rem;
 			background-color: #3b3b3b;
@@ -102,11 +87,17 @@
     		margin-right: 12rem;
 			text-justify: auto;
 		}
+		#outro {
+			position: absolute;
+			/* Top=number of steps * 1000 + 500 */
+			top: 7500px;
+		}
 	</style>
 </head>
 
 <body>
 	<main>
+		
 		<section id="intro">
 			<h1 style="text-align:center; font-size:3rem"> On World's Military Expenditure of 2021</h1>
 			<p>
@@ -116,33 +107,44 @@
 			</p>
 		</section>
 
+		
 		<section id="scrolly">
+			
 			<svg id="worldmap">
 			</svg>
 			
 			<article>
+				<div class="step" data-step="0"></div>
 				<div class="step" data-step="1">
-					<p> In Year 2021, the top 10 spending countries accounted for 75% of world's total.</p>
+					<p> Out of 138 countries with available data, 98 countries increased their spending in 2021 from 2020. </p>
 				</div>
 				<div class="step" data-step="2">
-					<p> Adding the next 10 most spending countries moves the point to 86% of the total. </p>
+					<p> and 36 countries decreased their spending in 2021 from 2020. </p>
 				</div>
 				<div class="step" data-step="3">
-					<p> Besides North America, Asia & Oceania has the most regional total. Accounting for ~27.5% of world's total. </p>
+					<p> The top 10 spending countries accounted for 75% of world's total.</p>
 				</div>
 				<div class="step" data-step="4">
+					<p> Adding the next 10, top 20 countries account for 86% of the total. (Out of 138 Countries with data available) </p>
+				</div>
+				<div class="step" data-step="5">
+					<p> Besides North America, Asia & Oceania has the most regional total. Accounting for ~27.5% of world's total. </p>
+				</div>
+				<div class="step" data-step="6">
 					<p>STEP 4</p>
 				</div>
+				<div class="step" data-step="7"></div>
 			</article>
 		</section>
-
+		
 		<section id="outro">
-			<h1 style="text-align:center; font-size:3rem"> On World's Military Expenditure of 2021</h1>
+			<h1 style="text-align:center; font-size:3rem">Conclusion. Out.</h1>
         </section>
+	
 	</main>
 
-	<!-- <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script> -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/d3-zoom@3"></script>
 	<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 	<script src="https://unpkg.com/scrollama"></script>

@@ -5,8 +5,9 @@ class worldmap {
         console.log(state.height);
 
         this.svg = d3.select("#worldmap")
-            .append("svg")
+            //.append("svg")
             .attr("class", "svg-map")
+            .attr("visibility","hidden")
             //.attr("width",state.width)
             //.attr("height",state.height)
             //.attr("viewBox",[-260,-250,state.width, state.height])
@@ -52,7 +53,7 @@ class worldmap {
 
     animate(state) {
         const targetList = state.target[state.index]
-        console.log("targetList: ", targetList)
+        // console.log("targetList: ", targetList)
 
         this.svg.transition()
             .duration(1500) 
@@ -61,17 +62,29 @@ class worldmap {
                 d3.zoomIdentity,
                 d3.zoomTransform(this.svg.node()).invert([state.width /2 , state.height /2])
             );
-
+        
+        
         this.svg.selectAll("path.countries")
             .select(function(d) {
                 if (targetList.includes(d.properties.name)) { return this }
                 else {return null}})
             .transition()
             .duration(2500)
-            .attr("fill","Red")
+            .attr("fill", "Red")
             .attr("stroke", "black")
         
-        if (state.index == 2) {
+        if (state.index == 1) {
+            this.svg.selectAll("path.countries")
+                .select(function(d) {
+                    if (targetList.includes(d.properties.name)) { return this }
+                    else {return null}})
+                .transition()
+                .duration(2500)
+                .attr("fill", "Blue")
+                .attr("stroke", "black")
+        }
+        
+        if (state.index == 4) {
             console.log("Taiwan bounds:", state.box)
 
             this.svg.transition()

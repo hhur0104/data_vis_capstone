@@ -4,6 +4,8 @@ class stickyBar {
         
         //This needs to be more Modular. // Get this from Regional.
         this.exdata  = [
+            [],
+            [],
             [{"src":"total", "val":2077095.3},
             {"src":"top10", "val":1577475.0}], 
             [{"src":"total", val:2077095.3},
@@ -32,6 +34,9 @@ class stickyBar {
     }
 
     animate(state) {    
+        if (state.index < 2) {
+            return ;
+        }
         var xScale = d3.scaleLinear()
             .domain([0, d3.max(this.exdata[state.index], d=> d.val)])
             .range([this.mar_LR, state.width - this.mar_LR ])

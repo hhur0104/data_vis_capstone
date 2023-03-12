@@ -4,6 +4,7 @@ import { stickyBar } from "./stickyBar.js";
 // using d3 for convenience
 var main = d3.select("main");
 var scrolly = main.select("#scrolly");
+// var figure = scrolly.select("#figure");
 var figure = scrolly.select("#worldmap");
 var article = scrolly.select("article");
 var step = article.selectAll(".step");
@@ -27,15 +28,25 @@ Promise.all([
     state.target = [
         // Index 0 
         target_mod.filter( d=> { 
+            if (d["big2021"] == "TRUE") {return d.Country}
+            else return null;
+        }).map( d=> { return d.Country}),
+        //index 2
+        target_mod.filter( d=> { 
+            if (d["big2021"] == "FALSE") {return d.Country}
+            else return null;
+        }).map( d=> { return d.Country}),
+        // Index 1 
+        target_mod.filter( d=> { 
             if (d["top10"] == "TRUE") {return d.Country}
             else return null;
         }).map( d=> { return d.Country}),
-        //Index 1
+        //Index 2
         target_mod.filter( d=> { 
             if (d["top20"] == "TRUE") {return d.Country}
             else return null;
         }).map( d=> { return d.Country}),
-        //Index 2
+        //Index 3
         target_mod.filter( d=> { 
             if (d["Region"] == "AsiaOceania") { console.log("AsiaOceania?",d.Country); return d.Country}
             else return null;
@@ -56,8 +67,8 @@ function handleResize() {
     var stepH = Math.floor(window.innerHeight * 1);
     step.style("height", stepH + "px");
 
-    var figureHeight = window.innerHeight * 0.95;
-    var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+    var figureHeight = window.innerHeight * 0.95 ;
+    var figureMarginTop = (window.innerHeight - figureHeight) / 2 ;
     // var figureHeight = window.innerHeight * 0.85;
     // var figureMarginTop = window.innerHeight * 0.05
 
@@ -67,15 +78,19 @@ function handleResize() {
         .style("height", figureHeight + "px")
         .style("top", figureMarginTop + "px");
 
+    article
+        .style("left",window.innerWidth / 3 + "px");
+
+
     // 3. tell scrollama to update new element dimensions
     scroller.resize();
 }
 
 function changeColor(index) {
     
-    state.index = index
-
-    if (index == 2) {
+    state.index = index - 1
+    
+    if (state.index == 4) {
         map.svg.selectAll("path.countries")
             .select(function(d) {
              if (d.properties.name == "Philippines") {
@@ -91,19 +106,41 @@ function changeColor(index) {
 
 // scrollama event handlers
 function handleStepEnter(response) {
-    //console.log(response);
+    console.log("ResponseIndex:", response.index)
+    if (response.index < 1) {
+        map.svg
+            .transition()
+            .duration(1000)
+            .attr("visibility","hidden")
+    }
+    else if (response.index >= 1 && response.index < 6) {
+        map.svg
+            .transition()
+            .duration(1000)
+            .attr("visibility","visible")
+
+        // update graphic based on step
+        changeColor(response.index)
+    }
+    else if (response.index == 6) {
+        map.svg.attr("visibility","hidden")
+    }
     
-    // update graphic based on step
-    changeColor(response.index)
     
 }
 
 function handleStepExit(response) {
-    map.svg.selectAll("path.countries")
-        .transition()
-        .duration(1000) 
-        .attr("fill","LightGray")
-        .attr("stroke", "gray")
+    if (response.index < 2) {
+
+    } else {
+        map.svg.selectAll("path.countries")
+            .transition()
+            .duration(1000) 
+            .attr("fill","LightGray")
+            .attr("stroke", "gray")
+    }
+    
+    
 
 }
 
