@@ -31,26 +31,39 @@ Promise.all([
             if (d["big2021"] == "TRUE") {return d.Country}
             else return null;
         }).map( d=> { return d.Country}),
-        //index 2
+        // index 1
         target_mod.filter( d=> { 
             if (d["big2021"] == "FALSE") {return d.Country}
             else return null;
         }).map( d=> { return d.Country}),
-        // Index 1 
+        // Index 2 
         target_mod.filter( d=> { 
             if (d["top10"] == "TRUE") {return d.Country}
             else return null;
         }).map( d=> { return d.Country}),
-        //Index 2
+        //Index 3
         target_mod.filter( d=> { 
             if (d["top20"] == "TRUE") {return d.Country}
             else return null;
         }).map( d=> { return d.Country}),
-        //Index 3
+        //Index 4
         target_mod.filter( d=> { 
             if (d["Region"] == "AsiaOceania") { console.log("AsiaOceania?",d.Country); return d.Country}
             else return null;
-        }).map( d=> { return d.Country})
+        }).map( d=> { return d.Country}),
+        //Index 5
+        target_mod.filter( d=> { 
+            if (d["Region"] == "AsiaOceania") { console.log("AsiaOceania?",d.Country); return d.Country}
+            else return null;
+        }).map( d=> { return d.Country}),
+        //Index 6
+        ["China"],
+        //Index 7
+        ["China"],
+        //Index 8
+        ["China","Russia"],
+        //Index 9
+        ["India","China","Russia"]
     ];
 
     //console.log("state.target: ",state.target)
@@ -90,14 +103,34 @@ function changeColor(index) {
     
     state.index = index - 1
     
-    if (state.index == 4) {
+    if (state.index == 4 || state.index == 5) {
         map.svg.selectAll("path.countries")
             .select(function(d) {
              if (d.properties.name == "Philippines") {
                 state.box = map.path.bounds(d)
                 return this
              } else {return null}})
+    } 
+
+    if (state.index == 6 || state.index == 7 || state.index == 8) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+             if (d.properties.name == "China") {
+                state.box = map.path.bounds(d)
+                return this
+             } else {return null}})
+    } 
+
+    if (state.index == 9) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+             if (d.properties.name == "India") {
+                state.box = map.path.bounds(d)
+                return this
+             } else {return null}})
     }
+
+    
 
     map.animate(state);
     bar.animate(state);
@@ -112,8 +145,8 @@ function handleStepEnter(response) {
             .transition()
             .duration(1000)
             .attr("visibility","hidden")
-    }
-    else if (response.index >= 1 && response.index < 6) {
+    } else if (response.index >= 1 && response.index < 12) {
+        
         map.svg
             .transition()
             .duration(1000)
@@ -122,7 +155,7 @@ function handleStepEnter(response) {
         // update graphic based on step
         changeColor(response.index)
     }
-    else if (response.index == 6) {
+    if (response.index == 12) {
         map.svg.attr("visibility","hidden")
     }
     
@@ -130,7 +163,8 @@ function handleStepEnter(response) {
 }
 
 function handleStepExit(response) {
-    if (response.index < 2) {
+    if (response.index < 2 || 
+        ( 5 <= response.index && response.index <= 9)) {
 
     } else {
         map.svg.selectAll("path.countries")
@@ -162,6 +196,6 @@ function init() {
             debug: false
         })
         .onStepEnter(handleStepEnter)
-        .onStepExit(handleStepExit)
+        //.onStepExit(handleStepExit)
         
 }

@@ -55,23 +55,23 @@ class worldmap {
         const targetList = state.target[state.index]
         // console.log("targetList: ", targetList)
 
-        this.svg.transition()
-            .duration(1500) 
-            .call(
-                this.zoom.transform,
-                d3.zoomIdentity,
-                d3.zoomTransform(this.svg.node()).invert([state.width /2 , state.height /2])
-            );
-        
+        if (!(4 <= state.index && state.index <= 8)) {
+            this.svg.transition()
+                .duration(1500) 
+                .call(
+                    this.zoom.transform,
+                    d3.zoomIdentity,
+                    d3.zoomTransform(this.svg.node()).invert([state.width /2 , state.height /2])
+                );
+        }
         
         this.svg.selectAll("path.countries")
-            .select(function(d) {
-                if (targetList.includes(d.properties.name)) { return this }
-                else {return null}})
             .transition()
             .duration(2500)
-            .attr("fill", "Red")
-            .attr("stroke", "black")
+            .attr("fill", d=> {
+                if(targetList.includes(d.properties.name)) {return "red"}
+                else {return "LightGray"}})
+            
         
         if (state.index == 1) {
             this.svg.selectAll("path.countries")
@@ -84,9 +84,10 @@ class worldmap {
                 .attr("stroke", "black")
         }
         
-        if (state.index == 4) {
-            console.log("Taiwan bounds:", state.box)
-
+        if (state.index == 4 || state.index == 5 ||
+            state.index == 6 || state.index == 7 || state.index == 8 || 
+            state.index == 9 ) {
+            
             this.svg.transition()
                 .duration(2500)
                 .call(

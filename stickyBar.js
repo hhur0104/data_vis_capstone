@@ -4,14 +4,26 @@ class stickyBar {
         
         //This needs to be more Modular. // Get this from Regional.
         this.exdata  = [
-            [],
-            [],
+            [], // 1
+            [], // 2
             [{"src":"total", "val":2077095.3},
-            {"src":"top10", "val":1577475.0}], 
+            {"src":"top10", "val":1577475.0}], //3
+            [{"src":"total", val:2077095.3},   
+            {"src":"top20", val:1798287.3}],   //4
             [{"src":"total", val:2077095.3},
-            {"src":"top20", val:1798287.3}],
+            {"src":"AsiaOceania", val:586066.7}], // 5
             [{"src":"total", val:2077095.3},
-            {"src":"AsiaOceania", val:586066.7}]
+            {"src":"AsiaOceania", val:586066.7}],  // 6  
+            [{"src":"total", val:2077095.3},
+            {"src":"China", val:257973.4}], // 7
+            [{"src":"total", val:2077095.3},
+            {"src":"China", val:257973.4}] // 8
+            [{"src":"total", val:2077095.3},
+            {"src":"China", val:257973.4}], // 9
+            [{"src":"total", val:2077095.3},
+            {"src":"China", val:257973.4}], // 10
+            [{"src":"total", val:2077095.3},
+            {"src":"India", val:66257.3}] // 11
         ]
         
         console.log("exampleData.val: ", this.exdata[0].map(d=> d.val))
@@ -27,8 +39,8 @@ class stickyBar {
             //.attr("height", state.height - state.height * 0.1)
 
         this.colorScale = d3.scaleOrdinal()
-            .domain(["total","top10","top20","AsiaOceania"])
-            .range(["gray","yellow","yellow","green"])
+            .domain(["total","top10","top20","AsiaOceania","China","India"])
+            .range(["gray","yellow","yellow","green","red","red"])
         
         
     }
