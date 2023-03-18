@@ -4,26 +4,27 @@ class stickyBar {
         
         //This needs to be more Modular. // Get this from Regional.
         this.exdata  = [
+            [], // 0
             [], // 1
-            [], // 2
             [{"src":"total", "val":2077095.3},
-            {"src":"top10", "val":1577475.0}], //3
+            {"src":"top10", "val":1577475.0}], //2
             [{"src":"total", val:2077095.3},   
-            {"src":"top20", val:1798287.3}],   //4
+            {"src":"top20", val:1798287.3}],   //3
             [{"src":"total", val:2077095.3},
-            {"src":"AsiaOceania", val:586066.7}], // 5
+            {"src":"NorthAmerica", val:827121.4}], // 4
             [{"src":"total", val:2077095.3},
-            {"src":"AsiaOceania", val:586066.7}],  // 6  
+            {"src":"EastAsia", val:410769.1}],  // 5  
             [{"src":"total", val:2077095.3},
-            {"src":"China", val:257973.4}], // 7
+            {"src":"WestEur", val:304961.2}], // 6
             [{"src":"total", val:2077095.3},
-            {"src":"China", val:257973.4}] // 8
-            [{"src":"total", val:2077095.3},
-            {"src":"China", val:257973.4}], // 9
-            [{"src":"total", val:2077095.3},
-            {"src":"China", val:257973.4}], // 10
-            [{"src":"total", val:2077095.3},
-            {"src":"India", val:66257.3}] // 11
+            {"src":"MiddleEast", val:186318.5}], // 7
+            [], // 8
+            [], // 9
+            [], // 10
+            [{"src":"total", val:410769.1},
+            {"src":"China", val:293351.8}], // state.index=11, response.index=14
+            [{"src":"total", val:410769.1},
+            {"src":"EastAsia MNNA", val:117309}]
         ]
         
         console.log("exampleData.val: ", this.exdata[0].map(d=> d.val))
@@ -39,16 +40,23 @@ class stickyBar {
             //.attr("height", state.height - state.height * 0.1)
 
         this.colorScale = d3.scaleOrdinal()
-            .domain(["total","top10","top20","AsiaOceania","China","India"])
-            .range(["gray","yellow","yellow","green","red","red"])
+            .domain(["total","top10","top20","NorthAmerica","EastAsia","WestEur","MiddleEast",
+            "China","EastAsia MNNA"])
+            .range(["gray","yellow","yellow","green","green","green","green",
+            "red","red"])
         
         
     }
 
     animate(state) {    
-        if (state.index < 2) {
+        if (state.index < 2 || state.index == 8 || state.index ==9 || state.index == 10) {
+                this.bar.selectAll("bar").remove()
+                this.bar.selectAll("rect").remove()
+                this.bar.selectAll("text").remove()
+                this.bar.selectAll("circle").remove()
             return ;
         }
+        
         var xScale = d3.scaleLinear()
             .domain([0, d3.max(this.exdata[state.index], d=> d.val)])
             .range([this.mar_LR, state.width - this.mar_LR ])
@@ -97,9 +105,9 @@ class stickyBar {
                   .style('fill', 'black')
                   .selection(),
               exit => exit
-                .style('font-size', "0.0em")
-                .transition().duration(1000)
-                  .remove()
+                // .style('font-size', "0.0em")
+                // .transition().duration(1000)
+                //   .remove()
             )
 
         console.log("exdata: ", xScale(this.exdata[state.index][1]["val"]))
