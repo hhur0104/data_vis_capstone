@@ -24,7 +24,17 @@ class stickyBar {
             [{"src":"total", val:410769.1},
             {"src":"China", val:293351.8}], // state.index=11, response.index=14
             [{"src":"total", val:410769.1},
-            {"src":"EastAsia MNNA", val:117309}]
+            {"src":"EastAsia MNNA", val:117309}],
+            [{"src":"East4", val:715621.8},
+            {"src":"WestEur", val:304961.2}],
+            [],[],[],
+            [{"src":"EasternEurope", val:76290},
+            {"src":"Russia", val:65907.7}],
+            [{"src":"EasternEurope", val:76290},
+            {"src":"Ukraine", val:5942.8}],
+            [{"src":"WesternEurope", val:304961.2},
+            {"src":"Nato3", val:181030.4}],
+            [],[],[]
         ]
         
         console.log("exampleData.val: ", this.exdata[0].map(d=> d.val))
@@ -41,20 +51,26 @@ class stickyBar {
 
         this.colorScale = d3.scaleOrdinal()
             .domain(["total","top10","top20","NorthAmerica","EastAsia","WestEur","MiddleEast",
-            "China","EastAsia MNNA"])
+            "China","EastAsia MNNA","East4","EasternEurope","Russia","Ukraine","WesternEurope","Nato3"])
             .range(["gray","yellow","yellow","green","green","green","green",
-            "red","red"])
+            "red","red","red","gray","red","red","gray","red"])
         
         
     }
 
     animate(state) {    
-        if (state.index < 2 || state.index == 8 || state.index ==9 || state.index == 10) {
+        if (state.index < 2 || 
+            state.index == 8 || state.index ==9 || state.index == 10 ||
+            state.index == 14 || state.index == 15 || state.index == 16 ||
+            state.index == 20) {
                 this.bar.selectAll("bar").remove()
                 this.bar.selectAll("rect").remove()
                 this.bar.selectAll("text").remove()
                 this.bar.selectAll("circle").remove()
             return ;
+        }
+        if (state.index == 19) {
+            this.bar.selectAll("circle").remove()
         }
         
         var xScale = d3.scaleLinear()
@@ -109,8 +125,6 @@ class stickyBar {
                 // .transition().duration(1000)
                 //   .remove()
             )
-
-        console.log("exdata: ", xScale(this.exdata[state.index][1]["val"]))
         
         this.bar
             .append('circle')

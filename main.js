@@ -76,6 +76,15 @@ Promise.all([
         [],[],
         ["China"],
         ["Japan" ,"South Korea","Taiwan"],
+        ["China","Japan" ,"South Korea","Taiwan"],
+        [],[],[],
+        ["Russia"], // R20, S17
+        ["Ukraine"],
+        ["United Kingdom","Germany","France"], 
+        target_mod.filter( d=> { 
+            if (d["big2021"] == "TRUE" && d["Region"] == "Europe") {return d.Country}
+            else return null;
+        }).map( d=> { return d.Country})
     ];
     state.china_trend = trend.map(({Year, China}) => ({year: Year, value: China}))
     state.EA_MNNA = [
@@ -85,7 +94,15 @@ Promise.all([
         //trend.map(({Year, SouthKorea}) => ({year: Year, name:"SouthKorea",value: SouthKorea})),
         //trend.map(({Year, Taiwan}) => ({year: Year, name:"Taiwan", value: Taiwan}))
     ]
-    
+    state.russia_trend = trend.map(({Year,Russia}) => ({year:Year, value:Russia}))
+    state.ukraine_trend = trend.map(({Year,Ukraine}) => ({year:Year, value:Ukraine}))
+    state.nato_trend = [
+        trend.map(({Year, UK}) => ({year: Year, name:"UK", value: UK})),
+        trend.map(({Year, Germany}) => ({year: Year, name:"Germany",value: Germany})),
+        trend.map(({Year, France}) => ({year: Year, name:"France", value: France}))
+        //trend.map(({Year, SouthKorea}) => ({year: Year, name:"SouthKorea",value: SouthKorea})),
+        //trend.map(({Year, Taiwan}) => ({year: Year, name:"Taiwan", value: Taiwan}))
+    ]
     init();
    });
 
@@ -120,11 +137,9 @@ function handleResize() {
     article.selectAll(".asia")
         .style("left",window.innerWidth * 0.25 + "px");
 
-    main.select("#China")
-        .style("top",window.innerHeight * 13 + 500 + "px")
-        .style("left",window.innerWidth * 0.6 + "px")
 
     state.asia_width = article.selectAll(".asia").node().getBoundingClientRect().width
+    
     state.asia_left = window.innerWidth * 0.25
     console.log("asia_width:", state.asia_width)
 
@@ -179,7 +194,7 @@ function changeColor(index) {
     if (state.index == 11) {
         map.svg.selectAll("path.countries")
             .select(function(d) {
-            if (d.properties.name == "China") {
+            if (d.properties.name == "South Korea") {
                 state.box = map.path.bounds(d)
                 return this
             } else {return null}})
@@ -191,8 +206,47 @@ function changeColor(index) {
                 state.box = map.path.bounds(d)
                 return this
             } else {return null}})
+    } 
+    if (state.index == 15) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "Germany") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
     }
-
+    if (state.index == 17) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "Ukraine") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    }
+    if (state.index == 18) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "Poland") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    }
+    if (state.index == 19 || state.index == 20) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "United Kingdom") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    }
+    if (state.index == 22) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "Kuwait") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    }
     map.animate(state);
     bar.animate(state);
 
@@ -252,13 +306,13 @@ function handleStepEnter(response) {
         changeColor(response.index)
 
     } else if (response.index == 11) {
-        main.select("#heading")
-            .style("opacity","0")
-
         changeColor(response.index)
 
         //StickyBar should disappear
         if(response.direction == "up") {
+            main.select("#heading")
+                .style("opacity","0")
+
             map.svg.selectAll("path.countries")
                 .transition()
                 .duration(50) 
@@ -297,13 +351,127 @@ function handleStepEnter(response) {
     } else if (response.index == 14) {
         // China
         changeColor(response.index)
-            
         var crv1 = new trendCurve(1, state)    
-        
     } else if (response.index == 15) {
         //EA MNNA
         changeColor(response.index)
         var crv2 = new trendCurve(2, state)
+    } else if (response.index == 16) {
+        //EA Closing
+        changeColor(response.index)
+    } else if (response.index == 17) {
+        // WorldOpaque
+        changeColor(response.index)
+        
+        if(response.direction == "up") {
+            main.select("#heading")
+                .style("opacity","0")
+            
+            article
+                .style("left",window.innerWidth * 0.37 + "px");
+        }
+    } else if (response.index==18) {
+        // Europe Heading
+        main.select("#heading")
+            .text("Europe")
+
+        main.select("#heading")
+            .transition()
+            .duration(500)
+            .style("opacity","1")
+        
+        article
+            .style("left",window.innerWidth * 0.05 + "px");
+        state.eur_left = window.innerWidth * 0.05
+
+        changeColor(response.index)
+    } else if (response.index == 19) {
+        if(response.direction == "up") {
+            map.svg.selectAll("path.countries")
+                .transition()
+                .duration(50) 
+                .attr("fill","LightGray")
+        }
+
+        // Europe Intro
+        main.select("#heading")
+            .transition()
+            .duration(50)
+            .style("opacity","0")
+        
+        map.svg.selectAll("path.countries")
+            .transition()
+            .duration(50) 
+            .style("opacity","1")
+
+        changeColor(response.index)        
+    } else if (response.index == 20) {
+        // Russia
+        changeColor(response.index)
+        var crv3 = new trendCurve(3, state)
+    } else if (response.index == 21) {
+        // Ukraine
+        changeColor(response.index)
+        var crv4 = new trendCurve(4, state)
+    } else if (response.index == 22) {
+        // UK, Germany, France
+        changeColor(response.index)
+        var crv5 = new trendCurve(5, state)
+    } else if (response.index == 23) {
+        if(response.direction == "up") {
+            map.svg.selectAll("path.countries")
+                .style("opacity","1")
+        }
+        // Europe Closing
+        changeColor(response.index)
+
+        
+    } else if (response.index == 24) {
+        if(response.direction == "up") {
+            main.select("#heading")
+                .style("opacity","0")
+            
+            article
+                .style("left",window.innerWidth * 0.05 + "px");
+            state.eur_left = window.innerWidth * 0.05
+        }
+        // WorldOpaque
+        changeColor(response.index)
+    } else if (response.index==25) {
+        // Europe Heading
+        main.select("#heading")
+            .text("Middle East")
+
+        main.select("#heading")
+            .transition()
+            .duration(500)
+            .style("opacity","1")
+        
+        article
+            .style("left",window.innerWidth * 0.05 + "px");
+        state.eur_left = window.innerWidth * 0.05
+
+        changeColor(response.index)
+    } else if (response.index == 26) {
+        // Middle East Intro
+        main.select("#heading")
+            .transition()
+            .duration(50)
+            .style("opacity","0")
+        
+        map.svg.selectAll("path.countries")
+            .transition()
+            .duration(50) 
+            .style("opacity","1")
+
+        changeColor(response.index)
+
+        if(response.direction == "up") {
+            map.svg.selectAll("path.countries")
+                .transition()
+                .duration(50) 
+                .attr("fill","LightGray")
+        }
     }
 }
 

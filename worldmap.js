@@ -66,7 +66,8 @@ class worldmap {
         }
 
         if ((state.index >= 0 && state.index <= 7) ||
-            (state.index >= 11)) {
+            (state.index == 11 || state.index == 12 || state.index == 13) ||
+            (state.index == 17 || state.index == 18 || state.index == 19 || state.index == 20)) {
             if (state.index == 1) {
                 this.svg.selectAll("path.countries")
                     .select(function(d) {
@@ -86,9 +87,8 @@ class worldmap {
         }
         
         if (state.index == 4 || state.index == 5 ||
-            state.index == 6 || state.index == 7 || state.index == 9 ||
-            state.index == 11 || state.index == 12 || state.index == 13)  {
-            this.svg.transition()
+            state.index == 6 || state.index == 7 || state.index == 9 ){
+                this.svg.transition()
                 .duration(2500)
                 .call(
                     this.zoom.transform,
@@ -98,13 +98,28 @@ class worldmap {
                         .translate(-(state.box[0][0] + state.box[1][0]) / 2, 
                                    -(state.box[0][1] + state.box[1][1]) / 2)
                 );
+            }
+
+        if( state.index == 11 || state.index == 12 || state.index == 15 ||
+            state.index == 17 || state.index == 18 || state.index == 19 || state.index == 20 ||
+            state.index == 22)  {
+            this.svg.transition()
+                .duration(2500)
+                .call(
+                    this.zoom.transform,
+                    d3.zoomIdentity
+                        .translate(state.width / 2 , state.height / 2 ) // change by index
+                        .scale(3.0)
+                        .translate(-(state.box[0][0] + state.box[1][0]) / 2, 
+                                   -(state.box[0][1] + state.box[1][1]) / 2)
+                );
         }
 
-        if (state.index == 8) {
+        if (state.index == 8 || state.index == 14 || state.index == 21) {
 
             this.svg.selectAll("path.countries")
                 .transition()
-                .duration(1000) 
+                .duration(500) 
                 .attr("fill","LightGray")
                 .attr("stroke", "gray")
                 .style("opacity","0.2")
