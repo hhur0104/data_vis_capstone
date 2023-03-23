@@ -12,17 +12,19 @@
 	<style>
 		#scrolly {
 			position: absolute;
-			padding: 1rem;
+			padding: 0.5rem;
 		}
-
+		body {
+			background-color: #25274D;
+			color:aliceblue;
+		}
 		article {
 			position:relative;
 			padding: 0;
-			max-width: 30rem;
+			max-width: 20rem;
 			margin: 0 auto;
 			-webkit-transform: translate3d(0, 0, 1000);
 			transform: translate3d(0, 0, 1000);
-			
 		}
 
 		svg {
@@ -39,7 +41,7 @@
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
-			background-color: #f3f3f3;
+			background-color: #25274D;
 		}
 
 		figure p {
@@ -58,18 +60,13 @@
 
 		.step {
 			margin: 0 auto 10rem auto;
-			color: #fff;
+			color: white;
 			z-index: 1000;
 			
 		}
 
 		.step:last-child {
 			margin-bottom: 0;
-		}
-
-		.step.is-active p {
-			background-color: goldenrod;
-			color: #3b3b3b;
 		}
 		.step h1 {
 			text-align: center;
@@ -80,7 +77,7 @@
 			position: relative;
 			padding: 1rem;
 			font-size: 1.5rem;
-			background-color: #3b3b3b;
+			opacity: 0.9;
 		}
 		#intro p {
 			text-align:left; 
@@ -94,6 +91,36 @@
 			position: absolute;
 			/* Top=number of steps * 1000 + 500 */
 			top: 28500px;
+		}
+		ul {
+			position: fixed;
+			list-style-type: none;
+  			top:0;
+			margin: 0;
+  			padding: 0;
+			opacity: 0;
+			max-width: 20rem;
+			font-size: 2rem;
+			display:block;
+			z-index: 10;
+			background-color:#25274D ;
+		}
+		li {
+			margin-top: 0.5rem;
+			/* margin-right:50px; */
+			cursor: pointer;
+		}
+		#typewriter {
+			position:fixed; 
+			top:500px; 
+			left:10px;
+			font-size: 1.5rem;
+			max-width: 20rem;
+			text-justify: auto;
+		}
+		.active {
+			font-size:2.5rem;
+			color: #2E9CCA
 		}
 	</style>
 </head>
@@ -120,50 +147,37 @@
 
 		
 		<section id="scrolly">
+			<ul id="navi">
+				<li id="world_navi">World Overview</li>
+				<li id="east_navi">East Asia</li>
+				<li id="eur_navi">Europe</li>
+				<li id="mid_navi">Middle East</li>
+			</ul>
+
 			<svg id="worldmap">
 			</svg>
 
-			<h1 id="heading" style="text-align:center; position:fixed; font-size:4rem; color:#3b3b3b; opacity:0;" >World Overview</h1>
+			<h1 id="heading" style="text-align:center; position:fixed; font-size: 4em; color:#2E9CCA; opacity:0;" >World Overview</h1>
 			
+			<p id="typewriter">  </p>
+
 			<article>
 				<div class="step" data-step="0"></div>
-				<div class="step" data-step="1"></div>
+				<div class="step" data-step="1" id="world_home"></div>
 				<div class="step" data-step="2"></div>
-				<div class="step" data-step="3">
-					<p> In 2021, 98 countries increased their spending. (Out of 138 countries with available data) </p>
-				</div>
-				<div class="step" data-step="4">
-					<p> and 36 countries decreased their spending. </p>
-				</div>
-				<div class="step" data-step="5">
-					<p> The top 10 spending countries accounted for ~75% of world's total. That is about 1.6 Trillion US Dollars.</p>
-				</div>
-				<div class="step" data-step="6">
-					<p> Adding the next 10, top 20 countries account for ~86% of the total. </p>
-				</div>
-				<div class="step" data-step="7">
-					<p> North America has the most regional total. US = $800B. Canada=$26B </p>
-				</div>
-				<div class="step" data-step="8">
-					<p> East Asia ranks 2nd in regional total. $410B</p>
-				</div>
-				<div class="step" data-step="9">
-					<p> Western Europe ranks 3rd in regional total. $305B</p>
-				</div>
-				<div class="step" data-step="10">
-					<p> Middle East ranks 4th in regional total. $186B</p>
-				</div>
-				<div class="step" data-step="11">
+				<div class="step" data-step="3"></div>
+				<div class="step" data-step="4"></div>
+				<div class="step" data-step="5"></div>
+				<div class="step" data-step="6"></div>
+				<div class="step" data-step="7"></div>
+				<div class="step" data-step="8"></div>
+				<div class="step" data-step="9"></div>
+				<div class="step" data-step="10"></div>
+				<div class="step" data-step="11" id="east_home">
 				</div>
 				<div class="step" data-step="12">
 				</div>
 				<div class="step" data-step="13">
-					<p class="asia"> Since WWII, East Asia has been an important region in preventing the spread of communism led by U.S and its Major Non-Nato Allies. <br> 
-						That strategy largely remains the same.  
-						<br><br>Scroll down for more detail outlook.
-					</p>
-				</div>
-				<div class="step" data-step="14">
 					<p class="asia"> China <br>
 						- 2nd in GDP <br>
 						- 2nd in Military Expenditure <br>
@@ -173,7 +187,7 @@
 					</p>
 					<svg id="china_trend"></svg>
 				</div>
-				<div class="step" data-step="15">
+				<div class="step" data-step="14">
 					<p class="asia"> Japan, South Korea & Taiwan<br>
 						- 3rd, 10th, ~20th in GDP <br>
 						- 9th, 10th, 21st in Military Expenditure <br>
@@ -182,19 +196,16 @@
 					</p>
 					<svg id="EA_MNNA_trend"></svg>
 				</div>
-				<div class="step" data-step="16">
-					<p class="asia"> Just these four countries together spent more than all Western Europe combined ($410B > $305B). Conflicts of political and economical 
-						interests between these countries make this region a hot bed for possible military conflict. <br><br> Upward trend will likely continue. </p>
-				</div>
-				<div class="step" data-step="17"></div>
-				<div class="step" data-step="18"></div>
-				<div class="step" data-step="19">
+				<div class="step" data-step="15"></div>
+				<div class="step" data-step="16"></div>
+				<div class="step" data-step="17" id="eur_home"></div>
+				<div class="step" data-step="18">
 					<p> After the fall of Soviet Union, Europe went through a period of demilitarization. Since the annexation of Crimea by Russia, 
 						Europe has been steadily increasing military spending once again. 
 						<br><br> Scroll down for more detail outlook of key nations.
 					</p>
 				</div>
-				<div class="step" data-step="20">
+				<div class="step" data-step="19">
 					<p class="europe"> Russia<br>
 						- 11th in GDP <br>
 						- 5th in Military Expenditure <br>
@@ -203,7 +214,7 @@
 					</p>
 					<svg id="rus_trend"></svg>
 				</div>
-				<div class="step" data-step="21">
+				<div class="step" data-step="20">
 					<p class="europe"> Ukraine<br>
 						- GDP $200B <br>
 						- 35th in Military Expenditure $5.6B <br>
@@ -211,7 +222,7 @@
 					</p>
 					<svg id="ukr_trend"></svg>
 				</div>
-				<div class="step" data-step="22">
+				<div class="step" data-step="21">
 					<p class="europe"> UK, France, Germany<br>
 						- 5,7,4th in GDP  <br>
 						- 4,6,7th in Military Spending  <br>
@@ -220,16 +231,16 @@
 					</p>
 					<svg id="nato_trend"></svg>
 				</div>
-				<div class="step" data-step="23">
+				<div class="step" data-step="22">
 					<p class="europe"> The upward trend was already there. Most of the Europe increased their spending in 2021 (marked red) even before the Russian invasion of Ukraine in 2022.
 						This prompted Sweden and Finland to newly join NATO alliance, but a resolution in Ukraine still seems far away at the time of writing. 
 						<br><br>The rearmament trend in Europe will likely continue.
 					</p>
 					<svg id="nato_trend"></svg>
 				</div>
-				<div class="step" data-step="24"></div>
-				<div class="step" data-step="25"></div>
-				<div class="step" data-step="26">
+				<div class="step" data-step="23"></div>
+				<div class="step" data-step="24" id="mid_home"></div>
+				<div class="step" data-step="25">
 					<p> With world's most Oil reserves, this region always been a region of nterests for major powers in Europe and America in 20th century. The recent history 
 						also contributes the geopolitics in the region to remain constantly at unease with range of problems to resolve.
 						<br><br>
@@ -239,12 +250,12 @@
 			</article>
 		</section>
 			
-		<section id="outro">
+		<!-- <section id="outro">
 			<h1 style="text-align:center; font-size:3rem"> Conclusion. Out.</h1>
-        </section>
+        </section> -->
 	
 	</main>
-
+	
 	<script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
     <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/d3-zoom@3"></script>

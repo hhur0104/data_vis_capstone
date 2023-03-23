@@ -8,6 +8,7 @@ class worldmap {
             //.append("svg")
             .attr("class", "svg-map")
             .attr("opacity","0")
+            .style("left",state.leftMar)
             //.attr("width",state.width)
             //.attr("height",state.height)
             //.attr("viewBox",[-260,-250,state.width, state.height])
@@ -28,10 +29,10 @@ class worldmap {
             .join("path")
             .attr("class", "countries")
             .attr("d", this.path)
-            .attr("stroke", "gray")
+            .attr("stroke", "#90CCF4")
             .attr("fill", d => {
                 //console.log(d.properties.name)
-                return "LightGray"})
+                return "#464866"})
             
         g.append("path")
             .attr("fill", "none")
@@ -52,7 +53,16 @@ class worldmap {
     }
 
     animate(state) {
-        const targetList = state.target[state.index]
+        var targetList;
+        if (state.index == -1) {
+            console.log("Everythin Reset")
+            this.svg.selectAll("path.countries")
+                .attr("fill","#464866")
+            
+        }
+        else {
+        
+        targetList = state.target[state.index]
         // console.log("targetList: ", targetList)
 
         if (state.index < 4 ) {
@@ -70,26 +80,25 @@ class worldmap {
             (state.index == 17 || state.index == 18 || state.index == 19 || state.index == 20)) {
             if (state.index == 1) {
                 this.svg.selectAll("path.countries")
-                    .select(function(d) {
-                        if (targetList.includes(d.properties.name)) { return this }
-                        else {return null}})
                     .transition()
-                    .duration(2500)
-                    .attr("fill", "Blue")
+                    .duration(1000)
+                    .attr("fill", d=> {
+                        if(targetList.includes(d.properties.name)) {return "#77A6F7"}
+                        else {return "#464866"}})
             } else {
                 this.svg.selectAll("path.countries")
                     .transition()
-                    .duration(2500)
+                    .duration(1000)
                     .attr("fill", d=> {
-                        if(targetList.includes(d.properties.name)) {return "red"}
-                        else {return "LightGray"}})
+                        if(targetList.includes(d.properties.name)) {return "#F76C6C"}
+                        else {return "#464866"}})
             }
         }
         
         if (state.index == 4 || state.index == 5 ||
             state.index == 6 || state.index == 7 || state.index == 9 ){
                 this.svg.transition()
-                .duration(2500)
+                .duration(1000)
                 .call(
                     this.zoom.transform,
                     d3.zoomIdentity
@@ -104,7 +113,7 @@ class worldmap {
             state.index == 17 || state.index == 18 || state.index == 19 || state.index == 20 ||
             state.index == 22)  {
             this.svg.transition()
-                .duration(2500)
+                .duration(1000)
                 .call(
                     this.zoom.transform,
                     d3.zoomIdentity
@@ -115,14 +124,15 @@ class worldmap {
                 );
         }
 
+        
         if (state.index == 8 || state.index == 14 || state.index == 21) {
-
+            console.log("map reset fi#F76C6C.")
+            
             this.svg.selectAll("path.countries")
                 .transition()
                 .duration(500) 
-                .attr("fill","LightGray")
-                .attr("stroke", "gray")
-                .style("opacity","0.2")
+                .attr("fill","#464866")
+                //.style("opacity","0.2")
             
             this.svg.transition()
                 .duration(1000) 
@@ -132,7 +142,7 @@ class worldmap {
                     d3.zoomTransform(this.svg.node()).invert([state.width /2 , state.height /2])
                 );
         }
-
+    }
         
     }
 }

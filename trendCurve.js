@@ -9,7 +9,6 @@ class trendCurve {
                 .attr("width", state.asia_width )
                 .attr("height", 200 )
                 .style("position","relative")
-                .style("left",state.asia_left)
                 .style("background-color","white")
 
             var xScale = d3.scaleLinear()
@@ -61,7 +60,6 @@ class trendCurve {
                 .attr("width", state.asia_width )
                 .attr("height", 300 )
                 .style("position","relative")
-                .style("left",state.asia_left)
                 .style("background-color","white")
 
             var xScale = d3.scaleLinear()
