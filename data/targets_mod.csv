@@ -1,178 +1,178 @@
-"","Country","SubRegion","X2020","X2021","Region","big2021","top10","top20"
-"168","United States of America","North America",778397.2,800672.2,"North America","TRUE",TRUE,TRUE
-"32","China","East Asia",257973.4,293351.9,"AsiaOceania","TRUE",TRUE,TRUE
-"73","India","South Asia",72937.1,76598,"AsiaOceania","TRUE",TRUE,TRUE
-"167","United Kingdom","Western Europe",60675,68366.4,"Europe","TRUE",TRUE,TRUE
-"133","Russia","Eastern Europe",61712.5,65907.7,"Europe","TRUE",TRUE,TRUE
-"57","France","Western Europe",52747.1,56647,"Europe","TRUE",TRUE,TRUE
-"61","Germany","Western Europe",53211,56017,"Europe","TRUE",TRUE,TRUE
-"136","Saudi Arabia","Middle East",64558.4,55564.3,"Middle East","FALSE",TRUE,TRUE
-"81","Japan","East Asia",51970.8,54123.6,"AsiaOceania","TRUE",TRUE,TRUE
-"146","South Korea","East Asia",45524,50226.9,"AsiaOceania","TRUE",TRUE,TRUE
-"79","Italy","Western Europe",28921.3,32006.1,"Europe","TRUE",FALSE,TRUE
-"8","Australia","Oceania",27300.9,31753.7,"AsiaOceania","TRUE",FALSE,TRUE
-"28","Canada","North America",23281.3,26449.2,"North America","TRUE",FALSE,TRUE
-"75","Iran","Middle East",15825.1,24589.1,"Middle East","TRUE",FALSE,TRUE
-"78","Israel","Middle East",21816.6,24341,"Middle East","TRUE",FALSE,TRUE
-"147","Spain","Western Europe",17431.8,19544.5,"Europe","TRUE",FALSE,TRUE
-"21","Brazil","South America",19591.2,19187.1,"South America","FALSE",FALSE,TRUE
-"162","Turkey","Middle East",17478.4,15478.9,"Middle East","FALSE",FALSE,TRUE
-"112","Netherlands","Western Europe",13085.7,13752,"Europe","TRUE",FALSE,TRUE
-"128","Poland","Central Europe",13718.3,13710.7,"Europe","FALSE",FALSE,TRUE
-"154","Taiwan","East Asia",11923.7,12958.5,"AsiaOceania","TRUE",FALSE,FALSE
-"131","Qatar","Middle East",0,11593.4,"Middle East","NoData",FALSE,FALSE
-"121","Pakistan","South Asia",10394.5,11304.8,"AsiaOceania","TRUE",FALSE,FALSE
-"33","Colombia","South America",9554.1,10180.1,"South America","TRUE",FALSE,FALSE
-"3","Algeria","North Africa",9708.3,9112.5,"North Africa","FALSE",FALSE,FALSE
-"86","Kuwait","Middle East",6941,9024.3,"Middle East","TRUE",FALSE,FALSE
-"102","Mexico","Central America and the Caribbean",8044.9,8680.8,"Central America","TRUE",FALSE,FALSE
-"74","Indonesia","South East Asia",9387,8259.3,"AsiaOceania","FALSE",FALSE,FALSE
-"119","Norway","Western Europe",7269.9,8251.7,"Europe","TRUE",FALSE,FALSE
-"63","Greece","Western Europe",5301.4,8079.9,"Europe","TRUE",FALSE,FALSE
-"151","Sweden","Western Europe",6271.3,7887.4,"Europe","TRUE",FALSE,FALSE
-"157","Thailand","South East Asia",7268.8,6604.5,"AsiaOceania","FALSE",FALSE,FALSE
-"14","Belgium","Western Europe",5442.8,6311.5,"Europe","TRUE",FALSE,FALSE
-"31","Chile","South America",5286.2,6230.4,"South America","TRUE",FALSE,FALSE
-"165","Ukraine","Eastern Europe",5924.2,5942.8,"Europe","TRUE",FALSE,FALSE
-"55","Finland","Western Europe",4087.5,5903.5,"Europe","TRUE",FALSE,FALSE
-"120","Oman","Middle East",6095.7,5783.6,"Middle East","FALSE",FALSE,FALSE
-"152","Switzerland","Western Europe",6389.7,5738.4,"Europe","FALSE",FALSE,FALSE
-"132","Romania","Central Europe",5052.3,5563.3,"Europe","TRUE",FALSE,FALSE
-"42","Denmark","Western Europe",4980.4,5391.2,"Europe","TRUE",FALSE,FALSE
-"106","Morocco","North Africa",4831,5378.4,"North Africa","TRUE",FALSE,FALSE
-"46","Egypt","Middle East",4505.4,5165.4,"Middle East","TRUE",FALSE,FALSE
-"129","Portugal","Western Europe",4303,4908.9,"Europe","TRUE",FALSE,FALSE
-"12","Bangladesh","South Asia",4558.2,4882.6,"AsiaOceania","TRUE",FALSE,FALSE
-"76","Iraq","Middle East",5649.4,4728.2,"Middle East","FALSE",FALSE,FALSE
-"117","Nigeria","sub-Saharan Africa",2567.9,4466.4,"Africa","TRUE",FALSE,FALSE
-"127","Philippines","South East Asia",3732.7,4090.5,"AsiaOceania","TRUE",FALSE,FALSE
-"40","Czechia","Central Europe",3252.5,3935.6,"Europe","TRUE",FALSE,FALSE
-"99","Malaysia","South East Asia",3374.6,3830.2,"AsiaOceania","TRUE",FALSE,FALSE
-"9","Austria","Western Europe",3601.6,3825.3,"Europe","TRUE",FALSE,FALSE
-"114","New Zealand","Oceania",3034.6,3389.9,"AsiaOceania","TRUE",FALSE,FALSE
-"145","South Africa","sub-Saharan Africa",3231,3265.6,"Africa","TRUE",FALSE,FALSE
-"71","Hungary","Central Europe",2771.2,2777.1,"Europe","TRUE",FALSE,FALSE
-"10","Azerbaijan","Eastern Europe",2237.8,2703.2,"Europe","TRUE",FALSE,FALSE
-"6","Argentina","South America",2830.9,2591.6,"South America","FALSE",FALSE,FALSE
-"45","Ecuador","South America",2356.3,2417,"South America","TRUE",FALSE,FALSE
-"126","Peru","South America",2653.6,2360.6,"South America","FALSE",FALSE,FALSE
-"82","Jordan","Middle East",2055.9,2176.8,"Middle East","TRUE",FALSE,FALSE
-"108","Myanmar","South East Asia",2498.2,2107.8,"AsiaOceania","FALSE",FALSE,FALSE
-"140","Slovakia","Central Europe",2047.2,1983.2,"Europe","FALSE",FALSE,FALSE
-"37","Croatia","Central Europe",1013,1739.8,"Europe","TRUE",FALSE,FALSE
-"83","Kazakhstan","Central Asia",1548.2,1617.8,"AsiaOceania","TRUE",FALSE,FALSE
-"148","Sri Lanka","South Asia",1529.4,1563.1,"AsiaOceania","TRUE",FALSE,FALSE
-"138","Serbia","Central Europe",1121.2,1270.8,"Europe","TRUE",FALSE,FALSE
-"77","Ireland","Western Europe",1144.4,1267.7,"Europe","TRUE",FALSE,FALSE
-"169","Uruguay","South America",1091.5,1257.9,"South America","TRUE",FALSE,FALSE
-"161","Tunisia","North Africa",1157.4,1250.5,"North Africa","TRUE",FALSE,FALSE
-"94","Lithuania","Central Europe",1174.1,1240.5,"Europe","TRUE",FALSE,FALSE
-"23","Bulgaria","Central Europe",1074.1,1216.6,"Europe","TRUE",FALSE,FALSE
-"84","Kenya","sub-Saharan Africa",1115.3,1113.3,"Africa","FALSE",FALSE,FALSE
-"164","Uganda","sub-Saharan Africa",984.8,1066.6,"Africa","TRUE",FALSE,FALSE
-"4","Angola","sub-Saharan Africa",993.6,981.5,"Africa","FALSE",FALSE,FALSE
-"89","Latvia","Central Europe",742,826.6,"Europe","TRUE",FALSE,FALSE
-"50","Estonia","Central Europe",718.1,764,"Europe","TRUE",FALSE,FALSE
-"13","Belarus","Eastern Europe",707.4,762.8,"Europe","TRUE",FALSE,FALSE
-"156","Tanzania","sub-Saharan Africa",659.3,742.3,"Africa","TRUE",FALSE,FALSE
-"141","Slovenia","Central Europe",567.7,734.4,"Europe","TRUE",FALSE,FALSE
-"26","Cambodia","South East Asia",647,643.4,"AsiaOceania","FALSE",FALSE,FALSE
-"36","Cote d'Ivoire","sub-Saharan Africa",607.2,637.7,"Africa","TRUE",FALSE,FALSE
-"18","Bolivia","South America",510.5,625.3,"South America","TRUE",FALSE,FALSE
-"7","Armenia","Eastern Europe",634,619.4,"Europe","FALSE",FALSE,FALSE
-"44","Dominican Rep.","Central America and the Caribbean",599.1,581.6,"Central America","FALSE",FALSE,FALSE
-"100","Mali","sub-Saharan Africa",593.9,558.4,"Africa","FALSE",FALSE,FALSE
-"20","Botswana","sub-Saharan Africa",499,517.8,"Africa","TRUE",FALSE,FALSE
-"39","Cyprus","Western Europe",483.4,517.5,"Europe","TRUE",FALSE,FALSE
-"52","Ethiopia","sub-Saharan Africa",504.1,487.8,"Africa","FALSE",FALSE,FALSE
-"137","Senegal","sub-Saharan Africa",345.6,474,"Africa","TRUE",FALSE,FALSE
-"95","Luxembourg","Western Europe",405.8,460,"Europe","TRUE",FALSE,FALSE
-"24","Burkina Faso","sub-Saharan Africa",382.5,458.3,"Africa","TRUE",FALSE,FALSE
-"22","Brunei","South East Asia",436.5,453.3,"AsiaOceania","TRUE",FALSE,FALSE
-"111","Nepal","South Asia",435.5,445.2,"AsiaOceania","TRUE",FALSE,FALSE
-"27","Cameroon","sub-Saharan Africa",393.3,443.3,"Africa","TRUE",FALSE,FALSE
-"70","Honduras","Central America and the Caribbean",350.4,438.1,"Central America","TRUE",FALSE,FALSE
-"110","Namibia","sub-Saharan Africa",368.2,401.9,"Africa","TRUE",FALSE,FALSE
-"47","El Salvador","Central America and the Caribbean",343.9,382.6,"Central America","TRUE",FALSE,FALSE
-"149","Sudan","sub-Saharan Africa",934.3,375.2,"Africa","FALSE",FALSE,FALSE
-"125","Paraguay","South America",364.3,372.6,"South America","TRUE",FALSE,FALSE
-"65","Guatemala","Central America and the Caribbean",342.8,341.8,"Central America","FALSE",FALSE,FALSE
-"30","Chad","sub-Saharan Africa",322.9,331,"Africa","TRUE",FALSE,FALSE
-"58","Gabon","sub-Saharan Africa",263.5,311.5,"Africa","TRUE",FALSE,FALSE
-"60","Georgia","Eastern Europe",287.9,302.1,"Europe","TRUE",FALSE,FALSE
-"62","Ghana","sub-Saharan Africa",239.9,298.3,"Africa","TRUE",FALSE,FALSE
-"176","Zambia","sub-Saharan Africa",212.1,282.6,"Africa","TRUE",FALSE,FALSE
-"1","Afghanistan","South Asia",279.6,278.3,"AsiaOceania","FALSE",FALSE,FALSE
-"107","Mozambique","sub-Saharan Africa",288.3,248.5,"Africa","FALSE",FALSE,FALSE
-"66","Guinea","sub-Saharan Africa",207,244.6,"Africa","TRUE",FALSE,FALSE
-"2","Albania","Central Europe",187.4,236.4,"Europe","TRUE",FALSE,FALSE
-"101","Mauritania","sub-Saharan Africa",198.5,230.9,"Africa","TRUE",FALSE,FALSE
-"80","Jamaica","Central America and the Caribbean",236.9,209.8,"Central America","FALSE",FALSE,FALSE
-"160","Trinidad and Tobago","Central America and the Caribbean",171.3,207.7,"Central America","TRUE",FALSE,FALSE
-"116","Niger","sub-Saharan Africa",238.3,202.4,"Africa","FALSE",FALSE,FALSE
-"134","Rwanda","sub-Saharan Africa",147.9,164,"Africa","TRUE",FALSE,FALSE
-"159","Togo","sub-Saharan Africa",163.9,113.9,"Africa","FALSE",FALSE,FALSE
-"143","Somalia","sub-Saharan Africa",98.2,113.5,"Africa","TRUE",FALSE,FALSE
-"104","Mongolia","East Asia",112.2,108.3,"AsiaOceania","FALSE",FALSE,FALSE
-"97","Madagascar","sub-Saharan Africa",87.4,99.2,"Africa","TRUE",FALSE,FALSE
-"105","Montenegro","Central Europe",83,98.6,"Europe","TRUE",FALSE,FALSE
-"16","Benin","sub-Saharan Africa",71.8,97.4,"Africa","TRUE",FALSE,FALSE
-"124","Papua New Guinea","Oceania",85.9,88.7,"AsiaOceania","TRUE",FALSE,FALSE
-"98","Malawi","sub-Saharan Africa",89.4,83.3,"Africa","FALSE",FALSE,FALSE
-"155","Tajikistan","Central Asia",80.4,81.7,"AsiaOceania","TRUE",FALSE,FALSE
-"85","Kosovo","Central Europe",79,79.6,"Europe","TRUE",FALSE,FALSE
-"115","Nicaragua","Central America and the Caribbean",79.3,77.9,"Central America","FALSE",FALSE,FALSE
-"68","Guyana","South America",76.5,70.7,"South America","FALSE",FALSE,FALSE
-"54","Fiji","Oceania",72.2,70.5,"AsiaOceania","FALSE",FALSE,FALSE
-"25","Burundi","sub-Saharan Africa",67.5,68.4,"Africa","TRUE",FALSE,FALSE
-"177","Zimbabwe","sub-Saharan Africa",8.6,65.8,"Africa","TRUE",FALSE,FALSE
-"103","Moldova","Eastern Europe",44.5,52.3,"Europe","TRUE",FALSE,FALSE
-"158","Timor Leste","South East Asia",38.5,39.2,"AsiaOceania","TRUE",FALSE,FALSE
-"91","Lesotho","sub-Saharan Africa",38.6,37,"Africa","FALSE",FALSE,FALSE
-"139","Sierra Leone","sub-Saharan Africa",22.4,27.3,"Africa","TRUE",FALSE,FALSE
-"67","Guinea-Bissau","sub-Saharan Africa",23.3,26.3,"Africa","TRUE",FALSE,FALSE
-"15","Belize","Central America and the Caribbean",26.7,21.8,"Central America","FALSE",FALSE,FALSE
-"69","Haiti","Central America and the Caribbean",26.4,20.9,"Central America","FALSE",FALSE,FALSE
-"92","Liberia","sub-Saharan Africa",12.1,14,"Africa","TRUE",FALSE,FALSE
-"5","Antarctica",NA,0,0,NA,"NoData",FALSE,FALSE
-"11","Bahamas",NA,0,0,NA,"NoData",FALSE,FALSE
-"17","Bhutan",NA,0,0,NA,"NoData",FALSE,FALSE
-"19","Bosnia and Herz.",NA,0,0,NA,"NoData",FALSE,FALSE
-"29","Central African Rep.",NA,0,0,NA,"NoData",FALSE,FALSE
-"34","Congo",NA,0,0,NA,"NoData",FALSE,FALSE
-"35","Costa Rica","Central America and the Caribbean",0,0,"Central America","NoData",FALSE,FALSE
-"38","Cuba","Central America and the Caribbean",0,0,"Central America","NoData",FALSE,FALSE
-"41","Dem. Rep. Congo",NA,0,0,NA,"NoData",FALSE,FALSE
-"43","Djibouti","sub-Saharan Africa",0,0,"Africa","NoData",FALSE,FALSE
-"48","Eq. Guinea",NA,0,0,NA,"NoData",FALSE,FALSE
-"49","Eritrea","sub-Saharan Africa",0,0,"Africa","NoData",FALSE,FALSE
-"51","eSwatini",NA,0,0,NA,"NoData",FALSE,FALSE
-"53","Falkland Is.",NA,0,0,NA,"NoData",FALSE,FALSE
-"56","Fr. S. Antarctic Lands",NA,0,0,NA,"NoData",FALSE,FALSE
-"59","Gambia",NA,0,0,NA,"NoData",FALSE,FALSE
-"64","Greenland",NA,0,0,NA,"NoData",FALSE,FALSE
-"72","Iceland","Western Europe",0,0,"Europe","NoData",FALSE,FALSE
-"87","Kyrgyzstan",NA,0,0,NA,"NoData",FALSE,FALSE
-"88","Laos","South East Asia",0,0,"AsiaOceania","NoData",FALSE,FALSE
-"90","Lebanon","Middle East",1921.4,0,"Middle East","NoData",FALSE,FALSE
-"93","Libya","North Africa",0,0,"North Africa","NoData",FALSE,FALSE
-"96","Macedonia",NA,0,0,NA,"NoData",FALSE,FALSE
-"109","N. Cyprus",NA,0,0,NA,"NoData",FALSE,FALSE
-"113","New Caledonia",NA,0,0,NA,"NoData",FALSE,FALSE
-"118","North Korea","East Asia",0,0,"AsiaOceania","NoData",FALSE,FALSE
-"122","Palestine",NA,0,0,NA,"NoData",FALSE,FALSE
-"123","Panama","Central America and the Caribbean",0,0,"Central America","NoData",FALSE,FALSE
-"130","Puerto Rico",NA,0,0,NA,"NoData",FALSE,FALSE
-"135","S. Sudan",NA,0,0,NA,"NoData",FALSE,FALSE
-"142","Solomon Is.",NA,0,0,NA,"NoData",FALSE,FALSE
-"144","Somaliland",NA,0,0,NA,"NoData",FALSE,FALSE
-"150","Suriname",NA,0,0,NA,"NoData",FALSE,FALSE
-"153","Syria","Middle East",0,0,"Middle East","NoData",FALSE,FALSE
-"163","Turkmenistan","Central Asia",0,0,"AsiaOceania","NoData",FALSE,FALSE
-"166","United Arab Emirates","Middle East",0,0,"Middle East","NoData",FALSE,FALSE
-"170","Uzbekistan","Central Asia",0,0,"AsiaOceania","NoData",FALSE,FALSE
-"171","Vanuatu",NA,0,0,NA,"NoData",FALSE,FALSE
-"172","Venezuela","South America",0,0,"South America","NoData",FALSE,FALSE
-"173","Vietnam","South East Asia",0,0,"AsiaOceania","NoData",FALSE,FALSE
-"174","W. Sahara",NA,0,0,NA,"NoData",FALSE,FALSE
-"175","Yemen","Middle East",0,0,"Middle East","NoData",FALSE,FALSE
+,Country,SubRegion,X2021,Region,top10,top20,NATO,MNNA
+168,United States of America,North America,800672.2,North America,TRUE,TRUE,TRUE,FALSE
+32,China,East Asia,293351.9,AsiaOceania,TRUE,TRUE,FALSE,FALSE
+73,India,South Asia,76598,AsiaOceania,TRUE,TRUE,FALSE,FALSE
+167,United Kingdom,Western Europe,68366.4,Europe,TRUE,TRUE,TRUE,FALSE
+133,Russia,Eastern Europe,65907.7,Europe,TRUE,TRUE,FALSE,FALSE
+57,France,Western Europe,56647,Europe,TRUE,TRUE,TRUE,FALSE
+61,Germany,Western Europe,56017,Europe,TRUE,TRUE,TRUE,FALSE
+136,Saudi Arabia,Middle East,55564.3,Middle East,TRUE,TRUE,FALSE,FALSE
+81,Japan,East Asia,54123.6,AsiaOceania,TRUE,TRUE,FALSE,TRUE
+146,South Korea,East Asia,50226.9,AsiaOceania,TRUE,TRUE,FALSE,TRUE
+79,Italy,Western Europe,32006.1,Europe,FALSE,TRUE,TRUE,FALSE
+8,Australia,Oceania,31753.7,AsiaOceania,FALSE,TRUE,FALSE,TRUE
+28,Canada,North America,26449.2,North America,FALSE,TRUE,TRUE,FALSE
+75,Iran,Middle East,24589.1,Middle East,FALSE,TRUE,FALSE,FALSE
+78,Israel,Middle East,24341,Middle East,FALSE,TRUE,FALSE,TRUE
+147,Spain,Western Europe,19544.5,Europe,FALSE,TRUE,TRUE,FALSE
+21,Brazil,South America,19187.1,South America,FALSE,TRUE,FALSE,TRUE
+162,Turkey,Middle East,15478.9,Middle East,FALSE,TRUE,TRUE,FALSE
+112,Netherlands,Western Europe,13752,Europe,FALSE,TRUE,TRUE,FALSE
+128,Poland,Central Europe,13710.7,Europe,FALSE,TRUE,TRUE,FALSE
+154,Taiwan,East Asia,12958.5,AsiaOceania,FALSE,FALSE,FALSE,TRUE
+131,Qatar,Middle East,11593.4,Middle East,FALSE,FALSE,FALSE,TRUE
+121,Pakistan,South Asia,11304.8,AsiaOceania,FALSE,FALSE,FALSE,TRUE
+33,Colombia,South America,10180.1,South America,FALSE,FALSE,FALSE,TRUE
+3,Algeria,North Africa,9112.5,North Africa,FALSE,FALSE,FALSE,FALSE
+86,Kuwait,Middle East,9024.3,Middle East,FALSE,FALSE,FALSE,TRUE
+102,Mexico,Central America and the Caribbean,8680.8,Central America,FALSE,FALSE,FALSE,FALSE
+74,Indonesia,South East Asia,8259.3,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+119,Norway,Western Europe,8251.7,Europe,FALSE,FALSE,TRUE,FALSE
+63,Greece,Western Europe,8079.9,Europe,FALSE,FALSE,TRUE,FALSE
+151,Sweden,Western Europe,7887.4,Europe,FALSE,FALSE,FALSE,FALSE
+157,Thailand,South East Asia,6604.5,AsiaOceania,FALSE,FALSE,FALSE,TRUE
+14,Belgium,Western Europe,6311.5,Europe,FALSE,FALSE,TRUE,FALSE
+31,Chile,South America,6230.4,South America,FALSE,FALSE,FALSE,FALSE
+165,Ukraine,Eastern Europe,5942.8,Europe,FALSE,FALSE,FALSE,FALSE
+55,Finland,Western Europe,5903.5,Europe,FALSE,FALSE,FALSE,FALSE
+120,Oman,Middle East,5783.6,Middle East,FALSE,FALSE,FALSE,FALSE
+152,Switzerland,Western Europe,5738.4,Europe,FALSE,FALSE,FALSE,FALSE
+132,Romania,Central Europe,5563.3,Europe,FALSE,FALSE,TRUE,FALSE
+42,Denmark,Western Europe,5391.2,Europe,FALSE,FALSE,TRUE,FALSE
+106,Morocco,North Africa,5378.4,North Africa,FALSE,FALSE,FALSE,TRUE
+46,Egypt,Middle East,5165.4,Middle East,FALSE,FALSE,FALSE,TRUE
+129,Portugal,Western Europe,4908.9,Europe,FALSE,FALSE,TRUE,FALSE
+12,Bangladesh,South Asia,4882.6,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+76,Iraq,Middle East,4728.2,Middle East,FALSE,FALSE,FALSE,FALSE
+117,Nigeria,sub-Saharan Africa,4466.4,Africa,FALSE,FALSE,FALSE,FALSE
+127,Philippines,South East Asia,4090.5,AsiaOceania,FALSE,FALSE,FALSE,TRUE
+40,Czechia,Central Europe,3935.6,Europe,FALSE,FALSE,TRUE,FALSE
+99,Malaysia,South East Asia,3830.2,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+9,Austria,Western Europe,3825.3,Europe,FALSE,FALSE,FALSE,FALSE
+114,New Zealand,Oceania,3389.9,AsiaOceania,FALSE,FALSE,FALSE,TRUE
+145,South Africa,sub-Saharan Africa,3265.6,Africa,FALSE,FALSE,FALSE,FALSE
+71,Hungary,Central Europe,2777.1,Europe,FALSE,FALSE,TRUE,FALSE
+10,Azerbaijan,Eastern Europe,2703.2,Europe,FALSE,FALSE,FALSE,FALSE
+6,Argentina,South America,2591.6,South America,FALSE,FALSE,FALSE,TRUE
+45,Ecuador,South America,2417,South America,FALSE,FALSE,FALSE,FALSE
+126,Peru,South America,2360.6,South America,FALSE,FALSE,FALSE,FALSE
+82,Jordan,Middle East,2176.8,Middle East,FALSE,FALSE,FALSE,TRUE
+108,Myanmar,South East Asia,2107.8,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+140,Slovakia,Central Europe,1983.2,Europe,FALSE,FALSE,TRUE,FALSE
+37,Croatia,Central Europe,1739.8,Europe,FALSE,FALSE,TRUE,FALSE
+83,Kazakhstan,Central Asia,1617.8,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+148,Sri Lanka,South Asia,1563.1,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+138,Serbia,Central Europe,1270.8,Europe,FALSE,FALSE,FALSE,FALSE
+77,Ireland,Western Europe,1267.7,Europe,FALSE,FALSE,FALSE,FALSE
+169,Uruguay,South America,1257.9,South America,FALSE,FALSE,FALSE,FALSE
+161,Tunisia,North Africa,1250.5,North Africa,FALSE,FALSE,FALSE,TRUE
+94,Lithuania,Central Europe,1240.5,Europe,FALSE,FALSE,TRUE,FALSE
+23,Bulgaria,Central Europe,1216.6,Europe,FALSE,FALSE,TRUE,FALSE
+84,Kenya,sub-Saharan Africa,1113.3,Africa,FALSE,FALSE,FALSE,FALSE
+164,Uganda,sub-Saharan Africa,1066.6,Africa,FALSE,FALSE,FALSE,FALSE
+4,Angola,sub-Saharan Africa,981.5,Africa,FALSE,FALSE,FALSE,FALSE
+89,Latvia,Central Europe,826.6,Europe,FALSE,FALSE,TRUE,FALSE
+50,Estonia,Central Europe,764,Europe,FALSE,FALSE,TRUE,FALSE
+13,Belarus,Eastern Europe,762.8,Europe,FALSE,FALSE,FALSE,FALSE
+156,Tanzania,sub-Saharan Africa,742.3,Africa,FALSE,FALSE,FALSE,FALSE
+141,Slovenia,Central Europe,734.4,Europe,FALSE,FALSE,TRUE,FALSE
+26,Cambodia,South East Asia,643.4,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+36,Cote d'Ivoire,sub-Saharan Africa,637.7,Africa,FALSE,FALSE,FALSE,FALSE
+18,Bolivia,South America,625.3,South America,FALSE,FALSE,FALSE,FALSE
+7,Armenia,Eastern Europe,619.4,Europe,FALSE,FALSE,FALSE,FALSE
+44,Dominican Rep.,Central America and the Caribbean,581.6,Central America,FALSE,FALSE,FALSE,FALSE
+100,Mali,sub-Saharan Africa,558.4,Africa,FALSE,FALSE,FALSE,FALSE
+20,Botswana,sub-Saharan Africa,517.8,Africa,FALSE,FALSE,FALSE,FALSE
+39,Cyprus,Western Europe,517.5,Europe,FALSE,FALSE,FALSE,FALSE
+52,Ethiopia,sub-Saharan Africa,487.8,Africa,FALSE,FALSE,FALSE,FALSE
+137,Senegal,sub-Saharan Africa,474,Africa,FALSE,FALSE,FALSE,FALSE
+95,Luxembourg,Western Europe,460,Europe,FALSE,FALSE,TRUE,FALSE
+24,Burkina Faso,sub-Saharan Africa,458.3,Africa,FALSE,FALSE,FALSE,FALSE
+22,Brunei,South East Asia,453.3,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+111,Nepal,South Asia,445.2,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+27,Cameroon,sub-Saharan Africa,443.3,Africa,FALSE,FALSE,FALSE,FALSE
+70,Honduras,Central America and the Caribbean,438.1,Central America,FALSE,FALSE,FALSE,FALSE
+110,Namibia,sub-Saharan Africa,401.9,Africa,FALSE,FALSE,FALSE,FALSE
+47,El Salvador,Central America and the Caribbean,382.6,Central America,FALSE,FALSE,FALSE,FALSE
+149,Sudan,sub-Saharan Africa,375.2,Africa,FALSE,FALSE,FALSE,FALSE
+125,Paraguay,South America,372.6,South America,FALSE,FALSE,FALSE,FALSE
+65,Guatemala,Central America and the Caribbean,341.8,Central America,FALSE,FALSE,FALSE,FALSE
+30,Chad,sub-Saharan Africa,331,Africa,FALSE,FALSE,FALSE,FALSE
+58,Gabon,sub-Saharan Africa,311.5,Africa,FALSE,FALSE,FALSE,FALSE
+60,Georgia,Eastern Europe,302.1,Europe,FALSE,FALSE,FALSE,FALSE
+62,Ghana,sub-Saharan Africa,298.3,Africa,FALSE,FALSE,FALSE,FALSE
+176,Zambia,sub-Saharan Africa,282.6,Africa,FALSE,FALSE,FALSE,FALSE
+1,Afghanistan,South Asia,278.3,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+107,Mozambique,sub-Saharan Africa,248.5,Africa,FALSE,FALSE,FALSE,FALSE
+66,Guinea,sub-Saharan Africa,244.6,Africa,FALSE,FALSE,FALSE,FALSE
+2,Albania,Central Europe,236.4,Europe,FALSE,FALSE,TRUE,FALSE
+101,Mauritania,sub-Saharan Africa,230.9,Africa,FALSE,FALSE,FALSE,FALSE
+80,Jamaica,Central America and the Caribbean,209.8,Central America,FALSE,FALSE,FALSE,FALSE
+160,Trinidad and Tobago,Central America and the Caribbean,207.7,Central America,FALSE,FALSE,FALSE,FALSE
+116,Niger,sub-Saharan Africa,202.4,Africa,FALSE,FALSE,FALSE,FALSE
+134,Rwanda,sub-Saharan Africa,164,Africa,FALSE,FALSE,FALSE,FALSE
+159,Togo,sub-Saharan Africa,113.9,Africa,FALSE,FALSE,FALSE,FALSE
+143,Somalia,sub-Saharan Africa,113.5,Africa,FALSE,FALSE,FALSE,FALSE
+104,Mongolia,East Asia,108.3,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+97,Madagascar,sub-Saharan Africa,99.2,Africa,FALSE,FALSE,FALSE,FALSE
+105,Montenegro,Central Europe,98.6,Europe,FALSE,FALSE,TRUE,FALSE
+16,Benin,sub-Saharan Africa,97.4,Africa,FALSE,FALSE,FALSE,FALSE
+124,Papua New Guinea,Oceania,88.7,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+98,Malawi,sub-Saharan Africa,83.3,Africa,FALSE,FALSE,FALSE,FALSE
+155,Tajikistan,Central Asia,81.7,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+85,Kosovo,Central Europe,79.6,Europe,FALSE,FALSE,FALSE,FALSE
+115,Nicaragua,Central America and the Caribbean,77.9,Central America,FALSE,FALSE,FALSE,FALSE
+68,Guyana,South America,70.7,South America,FALSE,FALSE,FALSE,FALSE
+54,Fiji,Oceania,70.5,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+25,Burundi,sub-Saharan Africa,68.4,Africa,FALSE,FALSE,FALSE,FALSE
+177,Zimbabwe,sub-Saharan Africa,65.8,Africa,FALSE,FALSE,FALSE,FALSE
+103,Moldova,Eastern Europe,52.3,Europe,FALSE,FALSE,FALSE,FALSE
+158,Timor Leste,South East Asia,39.2,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+91,Lesotho,sub-Saharan Africa,37,Africa,FALSE,FALSE,FALSE,FALSE
+139,Sierra Leone,sub-Saharan Africa,27.3,Africa,FALSE,FALSE,FALSE,FALSE
+67,Guinea-Bissau,sub-Saharan Africa,26.3,Africa,FALSE,FALSE,FALSE,FALSE
+15,Belize,Central America and the Caribbean,21.8,Central America,FALSE,FALSE,FALSE,FALSE
+69,Haiti,Central America and the Caribbean,20.9,Central America,FALSE,FALSE,FALSE,FALSE
+92,Liberia,sub-Saharan Africa,14,Africa,FALSE,FALSE,FALSE,FALSE
+5,Antarctica,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+11,Bahamas,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+17,Bhutan,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+19,Bosnia and Herz.,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+29,Central African Rep.,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+34,Congo,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+35,Costa Rica,Central America and the Caribbean,0,Central America,FALSE,FALSE,FALSE,FALSE
+38,Cuba,Central America and the Caribbean,0,Central America,FALSE,FALSE,FALSE,FALSE
+41,Dem. Rep. Congo,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+43,Djibouti,sub-Saharan Africa,0,Africa,FALSE,FALSE,FALSE,FALSE
+48,Eq. Guinea,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+49,Eritrea,sub-Saharan Africa,0,Africa,FALSE,FALSE,FALSE,FALSE
+51,eSwatini,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+53,Falkland Is.,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+56,Fr. S. Antarctic Lands,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+59,Gambia,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+64,Greenland,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+72,Iceland,Western Europe,0,Europe,FALSE,FALSE,TRUE,FALSE
+87,Kyrgyzstan,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+88,Laos,South East Asia,0,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+90,Lebanon,Middle East,0,Middle East,FALSE,FALSE,FALSE,FALSE
+93,Libya,North Africa,0,North Africa,FALSE,FALSE,FALSE,FALSE
+96,Macedonia,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+109,N. Cyprus,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+113,New Caledonia,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+118,North Korea,East Asia,0,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+122,Palestine,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+123,Panama,Central America and the Caribbean,0,Central America,FALSE,FALSE,FALSE,FALSE
+130,Puerto Rico,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+135,S. Sudan,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+142,Solomon Is.,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+144,Somaliland,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+150,Suriname,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+153,Syria,Middle East,0,Middle East,FALSE,FALSE,FALSE,FALSE
+163,Turkmenistan,Central Asia,0,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+166,United Arab Emirates,Middle East,0,Middle East,FALSE,FALSE,FALSE,FALSE
+170,Uzbekistan,Central Asia,0,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+171,Vanuatu,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+172,Venezuela,South America,0,South America,FALSE,FALSE,FALSE,FALSE
+173,Vietnam,South East Asia,0,AsiaOceania,FALSE,FALSE,FALSE,FALSE
+174,W. Sahara,NA,0,NA,FALSE,FALSE,FALSE,FALSE
+175,Yemen,Middle East,0,Middle East,FALSE,FALSE,FALSE,FALSE

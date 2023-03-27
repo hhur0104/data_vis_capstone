@@ -14,27 +14,44 @@ var map;
 var bar;
 var nav;
 const textData = [
-    "", "" // response.index == 0, 1
-    ,"In 2021, 98 countries increased their spending." //2
-    ,"and 36 countries decreased their spending." //3
+    "" 
+    ,"Let's start with an overview." // response.index == 0, 1
+    ,"In 2021, 98 countries increased their military expenditure spending." //2
+    ,"and 36 countries decreased their spending."      //3
     ,"The top 10 spending countries accounted for ~75% of world's total. That is about 1.6 Trillion US Dollars." //4
     ,"Adding the next 10, top 20 countries account for ~86% of the total." //5
-    ,"North America has the most regional total. US = $800B. Canada=$26B" //6
-    ,"East Asia ranks 2nd in regional total. $410B" //7
+    ,"North America has the most regional total. US = $800B. Canada=$26B"  //6
+    ,"East Asia ranks 2nd in regional total. $410B"      //7
     ,"Western Europe ranks 3rd in regional total. $305B" //8
-    ,"Middle East ranks 4th in regional total. $186B" //9
-    ,"","" //10, 11
+    ,"Middle East ranks 4th in regional total. $186B"    //9
+    ,""
+    ,"Let's look at East Asia." //10, 11
     ,"Since WWII, East Asia has been an important region in preventing the spread of communism led by U.S and its Major Non-Nato Allies. \n That strategy largely remains the same. \n\n Scroll down for more detail outlook." //12
-    ,"","" //13, 14
+    ,"China \n- 2nd in GDP \n- 2nd in Military Expenditure \n- Most Foreign Arms Deal: Russia (Import)\n- Formal Ally: North Korea\n- Nuclear Warheads\n- Milex Trend in Last 10 Years:" //13
+    ,"Japan, South Korea & Taiwan\n- 3rd, 10th, ~20th in GDP\n- 9th, 10th, 21st in Military Expenditure\n- Most Foreign Arms Deal: US (Import)\n- US Major Non-Nato Allies" //14
     ,"Just these four countries together spent more than all Western Europe combined ($410B > $305B). Conflicts of political and economical interests between these countries make this region a hot bed for possible military conflict. \n\n Upward trend will likely continue."
+    ,""//16
+    ,""//17
+    ,"After the fall of Soviet Union, Europe went through a period of demilitarization. Since the annexation of Crimea by Russia, Europe has been steadily increasing military spending once again. \n\nScroll down for more detail outlook of key nations."
+    ,"Russia\n- GDP: 11th\n- Milex World: 5th\n- Milex Europe: 2nd\n- Most Foreign Arms Deal: India, China (Export)\n- Nuclear Warheads"//19
+    ,"Ukraine\n- GDP $200B\n- 35th in Military Expenditure $5.6B\n- Most Foreign Arms Deal: US (Import)\n" //20
+    ,"UK, France, Germany\n- GDP: 5,7,4th\n- Milex World: 4,6,7th\n- Milex Europe: 1,3,4th\n- Allies: NATO\n- Most Foreign Arms Deal: US (Import)\n- Nuclear Warheads (UK, France)" //21
+    ,"The upward trend was already there. Most of the Europe increased their spending in 2021 (marked red) even before the Russian invasion of Ukraine in 2022. This prompted Sweden and Finland to newly join NATO alliance, but a resolution in Ukraine still seems far away at the time of writing. \n\nThe rearmament trend in Europe will likely continue." //22
+    ,"" //23
+    ,"" //24
+    ,"With world's most Oil reserves, this region always been a region of nterests for major powers in Europe and America in 20th century. The recent history also contributes the geopolitics in the region to remain constantly at unease with range of problems to resolve.\n\nScroll down to see military spending outlook for major powers in the region." //25
+    ,"Saudi Arabia\n- GDP: 19th\n- Milex MiddleEast: 1st\n- Milex World: 8th\n- Most Foreign Arms Deal: US (Import)\n- Petro-Dollar Agreement with US" //26
+    ,"Iran\n- GDP: 17th\n- Milex MiddleEast: 2nd\n- Milex World: 14th\n- US Economic Sanction on Iran" //27
+    ,"Israel\n- GDP: 30th\n- Milex MiddleEast: 3rd\n- Milex World: 15th\n- US Major Non-Nato Ally" //28
+    ,"In March 2023, Saudi Arabia and Iran announced they are restoring diplomatic relations with China brokering the deal. This is a diplomatic blow to U.S. and a win for China. This potentially may lead to more complex and complicated conflicts if China gains more favor in the region and tries to replace more traditional western politics and interests " //29
+    ,"" //30
+    ,"" //31
+    ,"" //31
 ]
 
 
 let state = {
     world : [],
-    width : window.innerWidth * 0.8,
-    leftMar : window.innerWidth * 0.2,
-    height : window.innerHeight * 0.95,
     index : 0,
     box : [[],[]]
 };
@@ -102,6 +119,16 @@ Promise.all([
         target_mod.filter( d=> { 
             if (d["big2021"] == "TRUE" && d["Region"] == "Europe") {return d.Country}
             else return null;
+        }).map( d=> { return d.Country}),
+        [],[],[],
+        ["Saudi Arabia"], //R26
+        ["Iran"],  //R27
+        ["Israel"], //R28
+        ["Bahrain", "Egypt", "Israel", "Jordan", "Kuwait", "Morocco", "Pakistan",  "Qatar", "Tunisia"], //R29
+        [], //R30
+        target_mod.filter( d=> { 
+            if (d["NATO"] == "TRUE" || d["MNNA"] == "TRUE") {return d.Country}
+            else return null;
         }).map( d=> { return d.Country})
     ];
     state.china_trend = trend.map(({Year, China}) => ({year: Year, value: China}))
@@ -121,6 +148,9 @@ Promise.all([
         //trend.map(({Year, SouthKorea}) => ({year: Year, name:"SouthKorea",value: SouthKorea})),
         //trend.map(({Year, Taiwan}) => ({year: Year, name:"Taiwan", value: Taiwan}))
     ]
+    state.saudi_trend = trend.map(({Year,SaudiArabia}) => ({year:Year, value:SaudiArabia}))
+    state.iran_trend = trend.map(({Year,Iran}) => ({year:Year, value:Iran}))
+    state.israel_trend = trend.map(({Year,Israel}) => ({year:Year, value:Israel}))
     init();
    });
 
@@ -140,6 +170,10 @@ function handleResize() {
     // var figureMarginTop = window.innerHeight * 0.05
 
     state.figureHeight = figureHeight
+    state.width = window.innerWidth * 0.7;
+    state.height = window.innerHeight * 0.95;
+    state.leftMar = window.innerWidth * 0.3;
+    state.contextWidth = state.leftMar - 20;
 
     figure
         .style("height", figureHeight + "px")
@@ -149,17 +183,22 @@ function handleResize() {
         .style("left","0 px");
 
     main.select("#heading")
-        .style("top", window.innerHeight * 0.75 + "px")
-        .style("left", window.innerWidth * 0.75 + "px")
+        .style("top", window.innerHeight * 0.45 + "px")
+        .style("left", window.innerWidth * 0.45 + "px")
+
+    d3.select('#context')
+        .style("top",window.innerHeight * 0.35 + "px")
+        .style("width",state.contextWidth + "px")
+        
 
     // article.selectAll(".asia")
     //     .style("left",window.innerWidth * 0.25 + "px");
 
 
-    state.asia_width = article.selectAll(".asia").node().getBoundingClientRect().width
+    // state.asia_width = article.selectAll(".asia").node().getBoundingClientRect().width
     
-    state.asia_left = window.innerWidth * 0.25
-    console.log("asia_width:", state.asia_width)
+    // state.asia_left = window.innerWidth * 0.25
+    // console.log("asia_width:", state.asia_width)
 
     // 3. tell scrollama to update new element dimensions
     scroller.resize();
@@ -216,7 +255,7 @@ function changeColor(index) {
     if (state.index == 11) {
         map.svg.selectAll("path.countries")
             .select(function(d) {
-            if (d.properties.name == "South Korea") {
+            if (d.properties.name == "China") {
                 state.box = map.path.bounds(d)
                 return this
             } else {return null}})
@@ -225,6 +264,14 @@ function changeColor(index) {
         map.svg.selectAll("path.countries")
             .select(function(d) {
             if (d.properties.name == "Japan") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    } 
+    if (state.index == 13) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "China") {
                 state.box = map.path.bounds(d)
                 return this
             } else {return null}})
@@ -269,6 +316,38 @@ function changeColor(index) {
                 return this
             } else {return null}})
     }
+    if (state.index == 24) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "Saudi Arabia") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    }
+    if (state.index == 25) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "Iran") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    }
+    if (state.index == 26) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "Israel") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    }
+    if (state.index == 27) {
+        map.svg.selectAll("path.countries")
+            .select(function(d) {
+            if (d.properties.name == "Kuwait") {
+                state.box = map.path.bounds(d)
+                return this
+            } else {return null}})
+    }
     map.animate(state);
     bar.animate(state);
 
@@ -276,9 +355,12 @@ function changeColor(index) {
 
 // scrollama event handlers
 function handleStepEnter(response) {
+
+    d3.select('#context').selectAll("svg").remove()
+
     d3.select('#typewriter')
         .transition()
-        .duration(2000)
+        .duration(3000)
         .tween("text", function () {
             var newText = textData[response.index];
             var textLength = newText.length;
@@ -286,6 +368,7 @@ function handleStepEnter(response) {
                 this.innerText = newText.substring(0, Math.round( t * textLength) ) ;
             };
         });
+    
 
     if (response.index == 0) {
         map.svg.selectAll("path.countries")
@@ -322,22 +405,23 @@ function handleStepEnter(response) {
             .duration(500)
             .style("opacity", "1")
         
-        main.select("#heading")
-            .transition()
-            .duration(500)
-            .style("opacity","1")
+        // main.select("#heading")
+        //     .transition()
+        //     .duration(500)
+        //     .style("opacity","1")
 
         main.select("#world_navi")
             .classed("active",true)
+        
 
         main.select("#heading")
             .text("World Overview")
 
     } else if (response.index >= 2 && response.index < 10) {
-        main.select("#heading")
-            .transition()
-            .duration(50)
-            .style("opacity","0")
+        // main.select("#heading")
+        //     .transition()
+        //     .duration(50)
+        //     .style("opacity","0")
 
         // update graphic based on step
         changeColor(response.index)
@@ -348,8 +432,8 @@ function handleStepEnter(response) {
 
         //StickyBar should disappear
         if(response.direction == "up") {
-            main.select("#heading")
-                .style("opacity","0")
+            // main.select("#heading")
+            //     .style("opacity","0")
 
             map.svg.selectAll("path.countries")
                 .transition()
@@ -363,13 +447,13 @@ function handleStepEnter(response) {
         }
     } else if (response.index==11) {
         //East Asia Start
-        main.select("#heading")
-            .text("East Asia")
+        // main.select("#heading")
+        //     .text("East Asia")
 
-        main.select("#heading")
-            .transition()
-            .duration(500)
-            .style("opacity","1")
+        // main.select("#heading")
+        //     .transition()
+        //     .duration(500)
+        //     .style("opacity","1")
         
         main.select("#world_navi")
             .classed("active",false)
@@ -378,10 +462,10 @@ function handleStepEnter(response) {
 
         changeColor(response.index)
     } else if (response.index == 12) {
-        main.select("#heading")
-            .transition()
-            .duration(50)
-            .style("opacity","0")
+        // main.select("#heading")
+        //     .transition()
+        //     .duration(50)
+        //     .style("opacity","0")
 
         changeColor(response.index)
 
@@ -408,8 +492,8 @@ function handleStepEnter(response) {
         changeColor(response.index)
         
         if(response.direction == "up") {
-            main.select("#heading")
-                .style("opacity","0")
+            // main.select("#heading")
+            //     .style("opacity","0")
             
             main.select("#east_navi")
                 .classed("active",true)
@@ -421,13 +505,13 @@ function handleStepEnter(response) {
         }
     } else if (response.index==17) {
         // Europe Heading
-        main.select("#heading")
-            .text("Europe")
+        // main.select("#heading")
+        //     .text("Europe")
 
-        main.select("#heading")
-            .transition()
-            .duration(500)
-            .style("opacity","1")
+        // main.select("#heading")
+        //     .transition()
+        //     .duration(500)
+        //     .style("opacity","1")
         
         main.select("#east_navi")
             .classed("active",false)
@@ -448,10 +532,10 @@ function handleStepEnter(response) {
         }
 
         // Europe Intro
-        main.select("#heading")
-            .transition()
-            .duration(50)
-            .style("opacity","0")
+        // main.select("#heading")
+        //     .transition()
+        //     .duration(50)
+        //     .style("opacity","0")
         
         map.svg.selectAll("path.countries")
             .transition()
@@ -487,8 +571,8 @@ function handleStepEnter(response) {
         
     } else if (response.index == 23) {
         if(response.direction == "up") {
-            main.select("#heading")
-                .style("opacity","0")
+            // main.select("#heading")
+            //     .style("opacity","0")
             
             // article
             //     .style("left",window.innerWidth * 0.0  + "px");
@@ -498,13 +582,13 @@ function handleStepEnter(response) {
         changeColor(response.index)
     } else if (response.index==24) {
         // Europe Heading
-        main.select("#heading")
-            .text("Middle East")
+        // main.select("#heading")
+        //     .text("Middle East")
 
-        main.select("#heading")
-            .transition()
-            .duration(500)
-            .style("opacity","1")
+        // main.select("#heading")
+        //     .transition()
+        //     .duration(500)
+        //     .style("opacity","1")
         
         main.select("#eur_navi")
             .classed("active",false)
@@ -518,11 +602,17 @@ function handleStepEnter(response) {
         changeColor(response.index)
     } else if (response.index == 25) {
         // Middle East Intro
-        main.select("#heading")
-            .transition()
-            .duration(50)
-            .style("opacity","0")
-        
+        // main.select("#heading")
+        //     .transition()
+        //     .duration(50)
+        //     .style("opacity","0")
+        if(response.direction == "up") {
+            map.svg.selectAll("path.countries")
+                .transition()
+                .duration(50) 
+                .attr("fill","#464866")
+        }
+
         map.svg.selectAll("path.countries")
             .transition()
             .duration(50) 
@@ -530,12 +620,25 @@ function handleStepEnter(response) {
 
         changeColor(response.index)
 
-        if(response.direction == "up") {
-            map.svg.selectAll("path.countries")
-                .transition()
-                .duration(50) 
-                .attr("fill","#464866")
-        }
+        
+    } else if (response.index == 26 ) {
+        //Saudi
+        changeColor(response.index)
+        var crv6 = new trendCurve(6, state)
+    } else if (response.index == 27) {
+        //Iran
+        changeColor(response.index)
+        var crv7 = new trendCurve(7, state)
+    } else if (response.index == 28) {
+        //Israel
+        changeColor(response.index)
+        var crv8 = new trendCurve(8, state)
+    } else if (response.index == 29) {
+        changeColor(response.index)
+    } else if (response.index == 30) {
+        changeColor(response.index)
+    } else if (response.index == 31) {
+        changeColor(response.index) 
     }
 }
 
@@ -551,12 +654,8 @@ function handleStepExit(response) {
 
 function init() {
     
-    // 1. force a resize on load to ensure proper dimensions are sent to scrollama
     handleResize();
 
-    // 2. setup the scroller passing options
-    // 		this will also initialize trigger observations
-    // 3. bind scrollama event handlers (this can be chained like below)
     scroller
         .setup({
             step: "#scrolly article .step",
@@ -565,8 +664,5 @@ function init() {
             debug: false
         })
         .onStepEnter(handleStepEnter)
-        
-        //.onStepProgress(handleStepProgress);
-        //
         
 }

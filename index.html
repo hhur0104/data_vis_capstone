@@ -15,7 +15,7 @@
 			padding: 0.5rem;
 		}
 		body {
-			background-color: #25274D;
+			background-color: #20212e;
 			color:aliceblue;
 		}
 		article {
@@ -41,7 +41,8 @@
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
-			background-color: #25274D;
+			background-color: #20212e;
+			/* background-color: #25274D; */
 		}
 
 		figure p {
@@ -100,27 +101,33 @@
   			padding: 0;
 			opacity: 0;
 			max-width: 20rem;
-			font-size: 2rem;
+			font-size: 1.5rem;
 			display:block;
 			z-index: 10;
-			background-color:#25274D ;
+			background-color:#20212e ;
+			font-family: consolas, monospace;
+			/* font-family: monaco, monospace; */
 		}
 		li {
 			margin-top: 0.5rem;
 			/* margin-right:50px; */
 			cursor: pointer;
 		}
+		#context {
+			position: fixed;
+			max-width:28rem;
+		}
 		#typewriter {
-			position:fixed; 
-			top:500px; 
-			left:10px;
-			font-size: 1.5rem;
-			max-width: 20rem;
+			/* top:500px;  */
+			/* left:10px; */
+			font-size: 1.2rem;
+			max-width: 28rem;
 			text-justify: auto;
+			font-family: consolas, monospace;
+			color:#48e35f;
 		}
 		.active {
-			font-size:2.5rem;
-			color: #2E9CCA
+			color: #48e35f
 		}
 	</style>
 </head>
@@ -133,13 +140,13 @@
 			<p>
 				Start scrolling to see how it works. Start scrolling to see how it works.Start scrolling to see how it works.
 				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
-				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
+				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
 				Start scrolling to see how it works. Start scrolling to see how it works.Start scrolling to see how it works.
 				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
-				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
+				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
 				Start scrolling to see how it works. Start scrolling to see how it works.Start scrolling to see how it works.
 				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
-				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
+				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
 				Start scrolling to see how it works. Start scrolling to see how it works.Start scrolling to see how it works.
 				Start scrolling to see how it works.Start scrolling to see how it works.Start scrolling to see how it works.
 			</p>
@@ -148,19 +155,21 @@
 		
 		<section id="scrolly">
 			<ul id="navi">
-				<li id="world_navi">World Overview</li>
-				<li id="east_navi">East Asia</li>
-				<li id="eur_navi">Europe</li>
-				<li id="mid_navi">Middle East</li>
+				<li id="world_navi">WORLD OVERVIEW</li>
+				<li id="east_navi">EAST ASIA</li>
+				<li id="eur_navi">EUROPE</li>
+				<li id="mid_navi">MIDDLE EAST</li>
+				<li id="us_navi">PAX AMERICANA</li>
 			</ul>
 
 			<svg id="worldmap">
 			</svg>
 
-			<h1 id="heading" style="text-align:center; position:fixed; font-size: 4em; color:#2E9CCA; opacity:0;" >World Overview</h1>
+			<h1 id="heading" style="position:fixed; font-size: 4em; color:#2E9CCA; opacity:0;" >World Overview</h1>
+			<div id="context">
+				<p id="typewriter"> </p>
+			</div>
 			
-			<p id="typewriter">  </p>
-
 			<article>
 				<div class="step" data-step="0"></div>
 				<div class="step" data-step="1" id="world_home"></div>
@@ -173,80 +182,27 @@
 				<div class="step" data-step="8"></div>
 				<div class="step" data-step="9"></div>
 				<div class="step" data-step="10"></div>
-				<div class="step" data-step="11" id="east_home">
-				</div>
-				<div class="step" data-step="12">
-				</div>
-				<div class="step" data-step="13">
-					<p class="asia"> China <br>
-						- 2nd in GDP <br>
-						- 2nd in Military Expenditure <br>
-						- Most Foreign Arms Deal: Russia (Import)<br>
-						- Formal Ally: North Korea <br>
-						- Nuclear Warheads
-					</p>
-					<svg id="china_trend"></svg>
-				</div>
-				<div class="step" data-step="14">
-					<p class="asia"> Japan, South Korea & Taiwan<br>
-						- 3rd, 10th, ~20th in GDP <br>
-						- 9th, 10th, 21st in Military Expenditure <br>
-						- Most Foreign Arms Deal: US (Import)<br>
-						- US Allies (MNNA)
-					</p>
-					<svg id="EA_MNNA_trend"></svg>
-				</div>
+				<div class="step" data-step="11" id="east_home"></div>
+				<div class="step" data-step="12"></div>
+				<div class="step" data-step="13"></div>
+				<div class="step" data-step="14"></div>
 				<div class="step" data-step="15"></div>
 				<div class="step" data-step="16"></div>
 				<div class="step" data-step="17" id="eur_home"></div>
-				<div class="step" data-step="18">
-					<p> After the fall of Soviet Union, Europe went through a period of demilitarization. Since the annexation of Crimea by Russia, 
-						Europe has been steadily increasing military spending once again. 
-						<br><br> Scroll down for more detail outlook of key nations.
-					</p>
-				</div>
-				<div class="step" data-step="19">
-					<p class="europe"> Russia<br>
-						- 11th in GDP <br>
-						- 5th in Military Expenditure <br>
-						- Most Foreign Arms Deal: India, China (Export)<br>
-						- Nuclear Warheads
-					</p>
-					<svg id="rus_trend"></svg>
-				</div>
-				<div class="step" data-step="20">
-					<p class="europe"> Ukraine<br>
-						- GDP $200B <br>
-						- 35th in Military Expenditure $5.6B <br>
-						- Most Foreign Arms Deal: US (Import)<br>
-					</p>
-					<svg id="ukr_trend"></svg>
-				</div>
-				<div class="step" data-step="21">
-					<p class="europe"> UK, France, Germany<br>
-						- 5,7,4th in GDP  <br>
-						- 4,6,7th in Military Spending  <br>
-						- Allies: NATO <br>
-						- Nuclear Warheads (UK, France)
-					</p>
-					<svg id="nato_trend"></svg>
-				</div>
-				<div class="step" data-step="22">
-					<p class="europe"> The upward trend was already there. Most of the Europe increased their spending in 2021 (marked red) even before the Russian invasion of Ukraine in 2022.
-						This prompted Sweden and Finland to newly join NATO alliance, but a resolution in Ukraine still seems far away at the time of writing. 
-						<br><br>The rearmament trend in Europe will likely continue.
-					</p>
-					<svg id="nato_trend"></svg>
-				</div>
+				<div class="step" data-step="18"></div>
+				<div class="step" data-step="19"></div>
+				<div class="step" data-step="20"></div>
+				<div class="step" data-step="21"></div>
+				<div class="step" data-step="22"></div>
 				<div class="step" data-step="23"></div>
 				<div class="step" data-step="24" id="mid_home"></div>
-				<div class="step" data-step="25">
-					<p> With world's most Oil reserves, this region always been a region of nterests for major powers in Europe and America in 20th century. The recent history 
-						also contributes the geopolitics in the region to remain constantly at unease with range of problems to resolve.
-						<br><br>
-						Scroll down to see military spending outlook for major powers in the region.
-					</p>
-				</div>
+				<div class="step" data-step="25"></div>
+				<div class="step" data-step="26"></div> 
+				<div class="step" data-step="27"></div> 
+				<div class="step" data-step="28"></div>
+				<div class="step" data-step="29"></div>
+				<div class="step" data-step="30" id="us_home"></div>
+				<div class="step" data-step="31"></div>
 			</article>
 		</section>
 			

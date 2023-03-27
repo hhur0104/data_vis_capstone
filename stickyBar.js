@@ -22,19 +22,25 @@ class stickyBar {
             [], // 9
             [], // 10
             [{"src":"total", val:410769.1},
-            {"src":"China", val:293351.8}], // state.index=11, response.index=14
+            {"src":"China", val:293351.8}], // state.index=11, response.index=13
             [{"src":"total", val:410769.1},
-            {"src":"EastAsia MNNA", val:117309}],
+            {"src":"EastAsia MNNA", val:117309}], //12, 14
             [{"src":"East4", val:715621.8},
-            {"src":"WestEur", val:304961.2}],
-            [],[],[],
+            {"src":"WestEur", val:304961.2}], //13, 15
+            [],[],[], //16, 18
             [{"src":"EasternEurope", val:76290},
-            {"src":"Russia", val:65907.7}],
+            {"src":"Russia", val:65907.7}], //17, 19
             [{"src":"EasternEurope", val:76290},
-            {"src":"Ukraine", val:5942.8}],
+            {"src":"Ukraine", val:5942.8}], //18, 20
             [{"src":"WesternEurope", val:304961.2},
-            {"src":"Nato3", val:181030.4}],
-            [],[],[]
+            {"src":"Nato3", val:181030.4}], //19, 22
+            [],[],[],[], //24, 26
+            [{"src":"MiddleEastTotal", val:186318.5},
+            {"src":"SaudiArabia",val:55564.3}],
+            [{"src":"MiddleEastTotal", val:186318.5},
+            {"src":"Iran",val:24589.1}],
+            [{"src":"MiddleEastTotal", val:186318.5},
+            {"src":"Israel",val:24341.0}]
         ]
         
         console.log("exampleData.val: ", this.exdata[0].map(d=> d.val))
@@ -51,9 +57,11 @@ class stickyBar {
 
         this.colorScale = d3.scaleOrdinal()
             .domain(["total","top10","top20","NorthAmerica","EastAsia","WestEur","MiddleEast",
-            "China","EastAsia MNNA","East4","EasternEurope","Russia","Ukraine","WesternEurope","Nato3"])
+            "China","EastAsia MNNA","East4","EasternEurope","Russia","Ukraine","WesternEurope","Nato3",
+            "MiddleEastTotal","SaudiArabia","Iran","Israel"])
             .range(["gray","yellow","yellow","green","green","green","green",
-            "red","red","red","gray","red","red","gray","red"])
+            "red","red","red","gray","red","red","gray","red",
+            "gray","yellow","yellow","yellow"])
         
         
     }
@@ -62,7 +70,7 @@ class stickyBar {
         if (state.index < 2 || 
             state.index == 8 || state.index ==9 || state.index == 10 ||
             state.index == 14 || state.index == 15 || state.index == 16 ||
-            state.index == 20) {
+            state.index == 20 || state.index == 27) {
                 this.bar.selectAll("bar").remove()
                 this.bar.selectAll("rect").remove()
                 this.bar.selectAll("text").remove()

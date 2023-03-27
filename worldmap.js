@@ -16,8 +16,8 @@ class worldmap {
         const g = this.svg.append("g");
         
         var projection = d3.geoMercator()
-            .scale(state.width * 0.14)
-            .center([0, 10])
+            .scale(state.width * 0.17)
+            .center([0, 30])
             .translate([state.width/2, state.height/2])
                 
         this.path = d3.geoPath(projection);
@@ -77,7 +77,9 @@ class worldmap {
 
         if ((state.index >= 0 && state.index <= 7) ||
             (state.index == 11 || state.index == 12 || state.index == 13) ||
-            (state.index == 17 || state.index == 18 || state.index == 19 || state.index == 20)) {
+            (state.index == 17 || state.index == 18 || state.index == 19 || state.index == 20) ||
+            (state.index == 24 || state.index == 25 || state.index == 26 || state.index == 27) ||
+            state.index == 29) {
             if (state.index == 1) {
                 this.svg.selectAll("path.countries")
                     .transition()
@@ -108,10 +110,11 @@ class worldmap {
                                    -(state.box[0][1] + state.box[1][1]) / 2)
                 );
             }
+        
 
-        if( state.index == 11 || state.index == 12 || state.index == 15 ||
+        if( state.index == 11 || state.index == 12 || state.index == 13 || state.index == 15 ||
             state.index == 17 || state.index == 18 || state.index == 19 || state.index == 20 ||
-            state.index == 22)  {
+            state.index == 22 || state.index == 24 || state.index == 25 || state.index == 27)  {
             this.svg.transition()
                 .duration(1000)
                 .call(
@@ -124,8 +127,22 @@ class worldmap {
                 );
         }
 
+        //Israel
+        if (state.index == 26) {
+            this.svg.transition()
+                .duration(1000)
+                .call(
+                    this.zoom.transform,
+                    d3.zoomIdentity
+                        .translate(state.width / 2 , state.height / 2 ) // change by index
+                        .scale(5.0)
+                        .translate(-(state.box[0][0] + state.box[1][0]) / 2, 
+                                   -(state.box[0][1] + state.box[1][1]) / 2)
+                );
+        }
+
         
-        if (state.index == 8 || state.index == 14 || state.index == 21) {
+        if (state.index == 8 || state.index == 14 || state.index == 21 || state.index == 28) {
             console.log("map reset fi#F76C6C.")
             
             this.svg.selectAll("path.countries")
