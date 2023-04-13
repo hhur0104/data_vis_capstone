@@ -44,9 +44,7 @@ const textData = [
     ,"Iran\n- GDP: 17th\n- Milex MiddleEast: 2nd\n- Milex World: 14th\n- US Economic Sanction on Iran" //27
     ,"Israel\n- GDP: 30th\n- Milex MiddleEast: 3rd\n- Milex World: 15th\n- US Major Non-Nato Ally" //28
     ,"In March 2023, Saudi Arabia and Iran announced they are restoring diplomatic relations with China brokering the deal. This is a diplomatic blow to U.S. and a win for China. This potentially may lead to more complex and complicated conflicts if China gains more favor in the region and tries to replace more traditional western politics and interests " //29
-    ,"" //30
-    ,"" //31
-    ,"" //31
+    
 ]
 
 
@@ -124,12 +122,13 @@ Promise.all([
         ["Saudi Arabia"], //R26
         ["Iran"],  //R27
         ["Israel"], //R28
-        ["Bahrain", "Egypt", "Israel", "Jordan", "Kuwait", "Morocco", "Pakistan",  "Qatar", "Tunisia"], //R29
-        [], //R30
-        target_mod.filter( d=> { 
-            if (d["NATO"] == "TRUE" || d["MNNA"] == "TRUE") {return d.Country}
-            else return null;
-        }).map( d=> { return d.Country})
+        []
+        // ["Bahrain", "Egypt", "Israel", "Jordan", "Kuwait", "Morocco", "Pakistan",  "Qatar", "Tunisia"], //R29
+        // [], //R30
+        // target_mod.filter( d=> { 
+        //     if (d["NATO"] == "TRUE" || d["MNNA"] == "TRUE") {return d.Country}
+        //     else return null;
+        // }).map( d=> { return d.Country})
     ];
     state.china_trend = trend.map(({Year, China}) => ({year: Year, value: China}))
     state.EA_MNNA = [
@@ -357,6 +356,7 @@ function changeColor(index) {
 function handleStepEnter(response) {
 
     d3.select('#context').selectAll("svg").remove()
+    d3.select('#typewriter').selectAll("text").remove()
 
     d3.select('#typewriter')
         .transition()
@@ -635,11 +635,11 @@ function handleStepEnter(response) {
         var crv8 = new trendCurve(8, state)
     } else if (response.index == 29) {
         changeColor(response.index)
-    } else if (response.index == 30) {
-        changeColor(response.index)
-    } else if (response.index == 31) {
-        changeColor(response.index) 
-    }
+    } // else if (response.index == 30) {
+    //     changeColor(response.index)
+    // } else if (response.index == 31) {
+    //     changeColor(response.index) 
+    // }
 }
 
 function handleStepExit(response) {
@@ -659,7 +659,7 @@ function init() {
     scroller
         .setup({
             step: "#scrolly article .step",
-            offset: 0.7,
+            offset: 0.9,
             progress: true,
             debug: false
         })

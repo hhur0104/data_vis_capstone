@@ -113,8 +113,9 @@ class stickyBar {
                     .style('opacity', 0)
                     .text(d => d.src)
                 .transition().duration(1000)
-                  .style("font-size", "0.75em")  
+                  .style("font-size", "1.5em")  
                   .style('opacity', 1)
+                  .style('fill', 'white')
                   // Note that as of v6, we have to call .selection() here
                   // This is because without it, we are returning the transition we've created,
                   // but selection.join() requires us to return a selection for enter and update groups
@@ -125,8 +126,8 @@ class stickyBar {
                   .transition().duration(1000)
                   .attr("x", d => xScale(d.val))
                   .text(d => d.src)
-                  .style("font-size", "0.75em") 
-                  .style('fill', 'black')
+                  .style("font-size", "1.5em") 
+                  .style('fill', 'white')
                   .selection(),
               exit => exit
                 // .style('font-size', "0.0em")

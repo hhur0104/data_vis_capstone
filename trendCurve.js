@@ -7,7 +7,7 @@ class trendCurve {
                 .attr("height", 200 )
                 .attr("width",state.contextWidth + "px")
                 .style("position","relative")
-                .style("background-color","white")
+                .style("background-color","#20212e")
                 .style("opacity","0")
 
             trendSVG.transition()
@@ -27,12 +27,12 @@ class trendCurve {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .style("text-anchor", "end")
-                .style("color","black")
+                .style("color","white")
                 .attr("transform", "rotate(-65)");
 
             trendSVG.append("g")
                 .attr("transform", "translate(0," + 0 + ")")
-                .style("color","black")
+                .style("color","white")
                 .call(d3.axisRight(yScale));
 
             var line = d3.line()
@@ -64,7 +64,7 @@ class trendCurve {
                 .attr("height", 300)
                 .attr("width",state.contextWidth + "px")
                 .style("position","relative")
-                .style("background-color","white")
+                .style("background-color","#20212e")
 
             var xScale = d3.scaleLinear()
                 .domain([2011, 2021])
@@ -109,12 +109,12 @@ class trendCurve {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .style("text-anchor", "end")
-                .style("color","black")
+                .style("color","white")
                 .attr("transform", "rotate(-65)");
 
             trendSVG.append("g")
                 .attr("transform", "translate(0," + 0 + ")")
-                .style("color","black")
+                .style("color","white")
                 .call(d3.axisRight(yScale));
 
 
@@ -135,7 +135,7 @@ class trendCurve {
                 .attr("width",state.contextWidth + "px")
                 .style("position","relative")
                 //.style("left",state.eur_left)
-                .style("background-color","white")
+                .style("background-color","#20212e")
 
             var xScale = d3.scaleLinear()
                 .domain(d3.extent(state.russia_trend, d => parseInt(d.year)))
@@ -150,12 +150,12 @@ class trendCurve {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .style("text-anchor", "end")
-                .style("color","black")
+                .style("color","white")
                 .attr("transform", "rotate(-65)");
 
             trendSVG.append("g")
                 .attr("transform", "translate(0," + 0 + ")")
-                .style("color","black")
+                .style("color","white")
                 .call(d3.axisRight(yScale));
 
             var line = d3.line()
@@ -187,7 +187,7 @@ class trendCurve {
                 .attr("width",state.contextWidth + "px")
                 .style("position","relative")
                 //.style("left",state.eur_left)
-                .style("background-color","white")
+                .style("background-color","#20212e")
 
             var xScale = d3.scaleLinear()
                 .domain(d3.extent(state.ukraine_trend, d => parseInt(d.year)))
@@ -202,12 +202,12 @@ class trendCurve {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .style("text-anchor", "end")
-                .style("color","black")
+                .style("color","white")
                 .attr("transform", "rotate(-65)");
 
             trendSVG.append("g")
                 .attr("transform", "translate(0," + 0 + ")")
-                .style("color","black")
+                .style("color","white")
                 .call(d3.axisRight(yScale));
 
             var line = d3.line()
@@ -236,10 +236,10 @@ class trendCurve {
 
             var trendSVG = d3.select("#context")
                 .append("svg")
-                .attr("height", 200 )
+                .attr("height", 350 )
                 .attr("width",state.contextWidth + "px")
                 .style("position","relative")
-                .style("background-color","white")
+                .style("background-color","#20212e")
 
             var xScale = d3.scaleLinear()
                 .domain([2011, 2021])
@@ -277,6 +277,7 @@ class trendCurve {
                 .attr('dy', '0.35em')
                 .style('font-family', 'sans-serif')
                 .style('font-size', 12)
+                .style("color","white")
                 .text(d => d[0].name);
 
             trendSVG.append("g")
@@ -284,12 +285,12 @@ class trendCurve {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .style("text-anchor", "end")
-                .style("color","black")
+                .style("color","white")
                 .attr("transform", "rotate(-65)");
 
             trendSVG.append("g")
                 .attr("transform", "translate(0," + 0 + ")")
-                .style("color","black")
+                .style("color","white")
                 .call(d3.axisRight(yScale));
 
             let totalLength = trendSVG.selectAll('.line').node().getTotalLength();
@@ -309,7 +310,7 @@ class trendCurve {
                 .attr("width",state.contextWidth + "px")
                 .style("position","relative")
                 //.style("left",state.eur_left)
-                .style("background-color","white")
+                .style("background-color","#20212e")
 
             var xScale = d3.scaleLinear()
                 .domain(d3.extent(state.saudi_trend, d => parseInt(d.year)))
@@ -324,12 +325,12 @@ class trendCurve {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .style("text-anchor", "end")
-                .style("color","black")
+                .style("color","white")
                 .attr("transform", "rotate(-65)");
 
             trendSVG.append("g")
                 .attr("transform", "translate(0," + 0 + ")")
-                .style("color","black")
+                .style("color","white")
                 .call(d3.axisRight(yScale));
 
             var line = d3.line()
@@ -362,7 +363,7 @@ class trendCurve {
                 .attr("width",state.contextWidth + "px")
                 .style("position","relative")
                 //.style("left",state.eur_left)
-                .style("background-color","white")
+                .style("background-color","#20212e")
 
             var xScale = d3.scaleLinear()
                 .domain(d3.extent(state.iran_trend, d => parseInt(d.year)))
@@ -377,12 +378,12 @@ class trendCurve {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .style("text-anchor", "end")
-                .style("color","black")
+                .style("color","white")
                 .attr("transform", "rotate(-65)");
 
             trendSVG.append("g")
                 .attr("transform", "translate(0," + 0 + ")")
-                .style("color","black")
+                .style("color","white")
                 .call(d3.axisRight(yScale));
 
             var line = d3.line()
@@ -414,7 +415,7 @@ class trendCurve {
                 .attr("height", 200 )
                 .attr("width",state.contextWidth + "px")
                 .style("position","relative")
-                .style("background-color","white")
+                .style("background-color","#20212e")
 
             var xScale = d3.scaleLinear()
                 .domain(d3.extent(state.israel_trend, d => parseInt(d.year)))
@@ -429,12 +430,12 @@ class trendCurve {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .style("text-anchor", "end")
-                .style("color","black")
+                .style("color","white")
                 .attr("transform", "rotate(-65)");
 
             trendSVG.append("g")
                 .attr("transform", "translate(0," + 0 + ")")
-                .style("color","black")
+                .style("color","white")
                 .call(d3.axisRight(yScale));
 
             var line = d3.line()
