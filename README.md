@@ -1,4 +1,4 @@
-## World Miilitary Spending 2016
+## World Miilitary Spending 2021
 
 This work is my capstone for MS Data Analysis and Visualization. 
 For abstract and full demo please refer:
