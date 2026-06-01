@@ -5,4 +5,5 @@ For abstract and full demo please refer:
 - https://hhur0104.github.io/data_vis_capstone/
 - https://academicworks.cuny.edu/gc_etds/5357/
 
-<img width="750" height="370" alt="image" src="https://github.com/user-attachments/assets/783448ea-ca6d-41f8-81f9-50d42562c09a" />
+## Demo
+![Interaction Demo](https://github.com/hhur0104/data_vis_capstone/blob/main/demo_GIF.gif)
