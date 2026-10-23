@@ -6,7 +6,10 @@ class NaviBar {
         this.menu = d3.select("#navi");
         for (const [key, stepIndex] of Object.entries(sections)) {
             d3.select(`#${IDS[key]}`).on("click", () => {
-                stepNodes[stepIndex].scrollIntoView();
+                // Land with the section's first step at mid-screen, past Scrollama's
+                // trigger line, so that step (not the one after it) is the active one.
+                const top = stepNodes[stepIndex].getBoundingClientRect().top + window.scrollY;
+                window.scrollTo(0, top - window.innerHeight * 0.5);
             });
         }
     }
