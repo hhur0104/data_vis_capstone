@@ -1,4 +1,4 @@
-setwd("~/Dropbox (Dropbox @RU)/Capstone/code/data/")
+# Run from the data/ folder
 
 milex <- read.csv("Milex.Current.csv")
 rownames(milex) <- milex$Country

@@ -1,154 +1,141 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8" />
-	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
-	<title> World Military Spending in 2021</title>
-	<meta name="description" content="World Military Spending in 2021" />
+	<title>World Military Spending in 2021</title>
+	<meta name="description" content="A scroll-driven look at world military expenditure in 2021, built with D3 and Scrollama." />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!-- <link rel="stylesheet" href="../style.css" /> -->
 	<style>
+		body {
+			margin: 0;
+			background-color: #20212e;
+			color: aliceblue;
+			overflow-x: hidden;
+		}
+
 		#scrolly {
 			position: absolute;
 			padding: 0.5rem;
 		}
-		body {
-			background-color: #20212e;
-			color:aliceblue;
-		}
+
 		article {
-			position:relative;
+			position: relative;
 			padding: 0;
 			max-width: 20rem;
 			margin: 0 auto;
-			-webkit-transform: translate3d(0, 0, 1000);
-			transform: translate3d(0, 0, 1000);
 		}
 
-		svg {
-			/* position: -webkit-sticky;
-			position: -moz-sticky;
-			position: -o-sticky;
-			position: -ms-sticky; */
-			/* position: absolute; */
+		/* map + comparison bar; position and size are set from main.js */
+		#worldmap {
 			display: block;
 			position: fixed;
-			left: 0;
-			width: 100%; 
 			margin: 0;
-			-webkit-transform: translate3d(0, 0, 0);
-			-moz-transform: translate3d(0, 0, 0);
-			transform: translate3d(0, 0, 0);
+			opacity: 0;
 			background-color: #20212e;
-			/* background-color: #25274D; */
-		}
-
-		figure p {
-			text-align: center;
-			padding: 1rem;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			-moz-transform: translate(-50%, -50%);
-			-webkit-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
-			font-size: 8rem;
-			font-weight: 900;
-			color: #fff;
 		}
 
 		.step {
 			margin: 0 auto 10rem auto;
-			color: white;
-			z-index: 1000;
-			
 		}
 
 		.step:last-child {
 			margin-bottom: 0;
 		}
-		.step h1 {
+
+		#intro h1 {
 			text-align: center;
-			color: #3b3b3b;
+			font-size: 3rem;
 		}
-		.step p {
-			text-align: left;
-			position: relative;
-			padding: 1rem;
-			font-size: 1.5rem;
-			opacity: 0.9;
-		}
+
 		#intro p {
-			text-align:left; 
-			font-size:1.5rem;
+			text-align: left;
+			font-size: 1.5rem;
 			padding: 5rem;
-    		margin-left: 12rem;
-    		margin-right: 12rem;
-			text-justify: auto;
+			margin-left: 12rem;
+			margin-right: 12rem;
 		}
-		#outro {
-			position: absolute;
-			/* Top=number of steps * 1000 + 500 */
-			top: 28500px;
-		}
-		ul {
+
+		#navi {
 			position: fixed;
 			list-style-type: none;
-  			top:0;
+			top: 0;
 			margin: 0;
-  			padding: 0;
+			padding: 0;
 			opacity: 0;
 			max-width: 20rem;
 			font-size: 1.5rem;
-			display:block;
 			z-index: 10;
-			background-color:#20212e ;
-			font-family: consolas, monospace;
-			/* font-family: monaco, monospace; */
+			background-color: #20212e;
+			font-family: consolas, Menlo, monospace;
 		}
-		li {
+
+		#navi li {
 			margin-top: 0.5rem;
-			/* margin-right:50px; */
 			cursor: pointer;
 		}
+
 		#context {
 			position: fixed;
-			max-width:28rem;
+			left: 0.5rem;
+			max-width: 28rem;
 		}
+
 		#typewriter {
-			/* top:500px;  */
-			/* left:10px; */
 			font-size: 1.2rem;
 			max-width: 28rem;
-			text-justify: auto;
-			font-family: consolas, monospace;
-			color:#48e35f;
+			font-family: consolas, Menlo, monospace;
+			color: #48e35f;
+			white-space: pre-line;
 		}
+
 		.active {
-			color: #48e35f
+			color: #48e35f;
+		}
+
+		#small-screen {
+			display: none;
+		}
+
+		@media (max-width: 900px) {
+			#small-screen {
+				display: block;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 0.75rem 1rem;
+				background: #2E9CCA;
+				color: #fff;
+				font-family: sans-serif;
+				text-align: center;
+				z-index: 20;
+			}
+
+			#intro p {
+				margin: 0;
+				padding: 1.5rem;
+				font-size: 1.1rem;
+			}
 		}
 	</style>
 </head>
 
 <body>
 	<main>
-		
 		<section id="intro">
-			<h1 style="text-align:center; font-size:3rem"> On World's Military Expenditure of 2021</h1>
+			<h1>On World's Military Expenditure of 2021</h1>
 			<p>
-				The world is in conflict. In Europe, Russia invaded Ukraine and perturbed peace in the region once again. 
-				In the middle east, a civilian political uprising in Iran and U.S. troops leaving Afghanistan have created new dynamics 
-				which may lead to a desperate resolution to exercise control. 
+				The world is in conflict. In Europe, Russia invaded Ukraine and perturbed peace in the region once again.
+				In the middle east, a civilian political uprising in Iran and U.S. troops leaving Afghanistan have created new dynamics
+				which may lead to a desperate resolution to exercise control.
 				And in China, President Xi successfully secured his third term as the party leader with closely related cabinet members,
-				which may embolden him to take precarious action against Taiwan in a reunification effort. 
+				which may embolden him to take precarious action against Taiwan in a reunification effort.
 				Here, I describe military expenditure and trade data curated by the Stockholm International Peace Research Institute to describe
 				geopolitical status of the three regions. Scroll down to explore the story.
 			</p>
 		</section>
 
-		
 		<section id="scrolly">
 			<ul id="navi">
 				<li id="world_navi">WORLD OVERVIEW</li>
@@ -157,17 +144,15 @@
 				<li id="mid_navi">MIDDLE EAST</li>
 			</ul>
 
-			<svg id="worldmap">
-			</svg>
+			<svg id="worldmap"></svg>
 
-			<h1 id="heading" style="position:fixed; font-size: 4em; color:#2E9CCA; opacity:0;" >World Overview</h1>
 			<div id="context">
-				<p id="typewriter"> </p>
+				<p id="typewriter"></p>
 			</div>
-			
+
 			<article>
 				<div class="step" data-step="0"></div>
-				<div class="step" data-step="1" id="world_home"></div>
+				<div class="step" data-step="1"></div>
 				<div class="step" data-step="2"></div>
 				<div class="step" data-step="3"></div>
 				<div class="step" data-step="4"></div>
@@ -177,41 +162,34 @@
 				<div class="step" data-step="8"></div>
 				<div class="step" data-step="9"></div>
 				<div class="step" data-step="10"></div>
-				<div class="step" data-step="11" id="east_home"></div>
+				<div class="step" data-step="11"></div>
 				<div class="step" data-step="12"></div>
 				<div class="step" data-step="13"></div>
 				<div class="step" data-step="14"></div>
 				<div class="step" data-step="15"></div>
 				<div class="step" data-step="16"></div>
-				<div class="step" data-step="17" id="eur_home"></div>
+				<div class="step" data-step="17"></div>
 				<div class="step" data-step="18"></div>
 				<div class="step" data-step="19"></div>
 				<div class="step" data-step="20"></div>
 				<div class="step" data-step="21"></div>
 				<div class="step" data-step="22"></div>
 				<div class="step" data-step="23"></div>
-				<div class="step" data-step="24" id="mid_home"></div>
+				<div class="step" data-step="24"></div>
 				<div class="step" data-step="25"></div>
-				<div class="step" data-step="26"></div> 
-				<div class="step" data-step="27"></div> 
+				<div class="step" data-step="26"></div>
+				<div class="step" data-step="27"></div>
 				<div class="step" data-step="28"></div>
 				<div class="step" data-step="29"></div>
-				<!-- <div class="step" data-step="30" id="us_home"></div>
-				<div class="step" data-step="31"></div> -->
 			</article>
 		</section>
-			
-		<!-- <section id="outro">
-			<h1 style="text-align:center; font-size:3rem"> Conclusion. Out.</h1>
-        </section> -->
-	
 	</main>
-	
-	<script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
-    <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
-	<script src="https://cdn.jsdelivr.net/npm/d3-zoom@3"></script>
+
+	<div id="small-screen">Best viewed on a desktop browser.</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-	<script src="https://unpkg.com/scrollama"></script>
+	<script src="https://cdn.jsdelivr.net/npm/scrollama@3.2.0/build/scrollama.js"></script>
 	<script type="module" src="main.js"></script>
 </body>
 
