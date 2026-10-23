@@ -6,16 +6,7 @@ A scroll-driven data story about global military expenditure in 2021. As the rea
 
 ![Scrolling through the story](docs/demo.gif)
 
-The story has four parts:
-
-| Section | Steps | What it shows |
-|---|---|---|
-| World overview | 1–10 | Which countries raised or cut spending in 2021, how concentrated spending is in the top 10 and top 20, and the regional totals |
-| East Asia | 11–16 | China against Japan, South Korea and Taiwan, with 2011–2021 trends |
-| Europe | 17–23 | Russia, Ukraine and the UK/France/Germany, plus the rearmament trend that came before 2022 |
-| Middle East | 24–29 | Saudi Arabia, Iran and Israel, and the 2023 Saudi–Iran rapprochement brokered by China |
-
-The menu at the top left jumps straight to any section.
+A menu at the top left jumps between the four sections: world overview, East Asia, Europe and the Middle East.
 
 ## How it works
 
@@ -51,20 +42,6 @@ python3 -m http.server 8000
 ```
 
 It's designed for desktop browsers at laptop size or larger.
-
-## Project layout
-
-```
-index.html          page structure and styles
-main.js             data loading, Scrollama setup, step handling
-steps.js            step table: narrative text, highlights, zoom target, bar, trend chart
-worldmap.js         map drawing, highlighting and zoom
-stickyBar.js        comparison bar
-trendCurve.js       trend line charts
-naviBar.js          section menu
-data/               SIPRI-derived CSVs, map TopoJSON, R prep script
-thesis-2023/        frozen copy of the version submitted with the thesis
-```
 
 ## Background
 
